@@ -1,30 +1,38 @@
-import React, { Component } from 'react'
+import React, { useReducer } from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import Home from './components/Home.jsx'
+import HomePage from './components/Home.jsx'
+import MoviesPage from './components/MoviesPage.jsx'
+import rootReducer from './reducers'
+import usePageTransition from './hookExtensions/usePageTransition'
 
-class App extends Component {
-  render () {
-    return (
-      <>
-        <Router>
-          <Switch>
-            <Route
-              path='/' render={() => (
-                <Home />
-              )}
-            />
+const initialState = { prevPage: null, page: null }
+// App component
+export default () => {
+  const [state, dispatch] = useReducer(rootReducer, initialState)
+  console.log(state)
+  usePageTransition(state.prevPage, state.page)
+  console.log('App')
+  return (
+    <>
+      <Router>
+        <HomePage />
+        <MoviesPage state={state} />
 
-            {/* <Route
-              path='/:id' render={(match) => (
-                <DetailsPage match={match} />
-              )}
-            /> */}
-          </Switch>
-        </Router>
+        <Switch>
+          <Route
+            exact path='/' render={() => {
+              dispatch({ type: 'SET_PAGE', page: 'home' })
+            }}
+          />
 
-      </>
-    )
-  }
+          <Route
+            path='/movies/:id' render={({ match }) => {
+              dispatch({ type: 'SET_MOVIE_ID', movieId: match.params.id })
+              dispatch({ type: 'SET_PAGE', page: 'movies' })
+            }}
+          />
+        </Switch>
+      </Router>
+    </>
+  )
 }
-
-export default App

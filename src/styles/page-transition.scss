@@ -1,0 +1,28 @@
+body {
+  overflow: hidden;
+  width: 800px;
+  margin: 0 auto;
+  background: #eee;
+}
+
+#app {
+  position: relative;
+}
+
+.transitionable {
+  transition: left 0.5s;
+}
+
+.page {
+  position: absolute;
+  width: 800px;
+  &.left {
+    left: -100vw;
+  }
+  &.right {
+    left: 100vw;
+  }
+  &.current {
+    left: 0vw;
+  }
+}
