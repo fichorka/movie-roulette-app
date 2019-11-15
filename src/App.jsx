@@ -1,7 +1,7 @@
 import React, { useReducer } from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import HomePage from './components/Home.jsx'
-import MoviesPage from './components/MoviesPage.jsx'
+import HomePage from './components/HomePage.jsx'
+import MoviePage from './components/MoviePage.jsx'
 import rootReducer from './reducers'
 import usePageTransition from './hookExtensions/usePageTransition'
 
@@ -16,7 +16,7 @@ export default () => {
     <>
       <Router>
         <HomePage />
-        <MoviesPage state={state} />
+        <MoviePage state={state} />
 
         <Switch>
           <Route

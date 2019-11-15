@@ -1,0 +1,30 @@
+body {
+  overflow-x: hidden;
+  margin: 0 auto;
+  background: #eee;
+  font: 5.5vw arial, sans-serif;
+}
+
+.page {
+  font-size: 1em;
+  width: 100%;
+  padding: 0 1%;
+  margin: 0 auto;
+}
+
+.img {
+  display: block;
+  width: 90%;
+  margin: 0 auto;
+}
+
+svg * {
+  stroke-width: 2;
+  fill: none;
+  stroke: #333;
+}
+
+.card {
+  box-sizing: border-box;
+  width: 100%;
+}
