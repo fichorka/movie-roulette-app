@@ -1,30 +1,61 @@
 body {
-  overflow-x: hidden;
+  overflow: hidden;
   margin: 0 auto;
   background: #eee;
-  font: 5.5vw arial, sans-serif;
+  font: 6vw arial, sans-serif;
 }
 
 .page {
+  overflow-y: auto;
+  height: 100vh;
   font-size: 1em;
   width: 100%;
-  padding: 0 1%;
-  margin: 0 auto;
-}
-
-.img {
-  display: block;
-  width: 90%;
   margin: 0 auto;
 }
 
 svg * {
-  stroke-width: 2;
+  stroke-width: 4;
   fill: none;
   stroke: #333;
 }
 
+
+// Card component
 .card {
   box-sizing: border-box;
   width: 100%;
+  background: #ddd;
+  margin: 2em auto;
+  padding: 0.1em 0;
+  box-sizing: border-box;
+  
+  & > * {
+    width: 90%;
+    margin: 0.8em auto;
+  }
+
+  .img {
+    display: block;
+  }
+  .textbox {
+    .title {
+      font-size: 1.2em;
+      font-weight: normal;
+      margin: 0;
+    }
+    .lang {
+      font-size: 0.8em;
+    }
+  }
+}
+
+@media screen and (min-width: 800px) {
+  body {
+    font-size: 2vw;
+  }
+  .card {
+    display: inline-block;
+    width: (100% / 4);
+    margin: 2em (100% / 24);
+  }
 }

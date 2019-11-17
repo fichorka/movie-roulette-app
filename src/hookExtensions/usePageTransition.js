@@ -8,10 +8,12 @@ export default (prevPage, page) => {
       case 'home':
         document.getElementById('home-page').classList.add('current')
         document.getElementById('movies-page').classList.remove('current')
+        window.scroll({ top: 0, left: 0, behavior: 'smooth' })
         break
       case 'movies':
         document.getElementById('movies-page').classList.add('current')
         document.getElementById('home-page').classList.remove('current')
+        window.scroll({ top: 0, left: 0, behavior: 'smooth' })
         break
     }
     if (page === null) {
