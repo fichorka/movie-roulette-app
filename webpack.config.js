@@ -7,7 +7,12 @@ module.exports = {
   entry: './src/index.jsx',
   output: {
     path: path.resolve(__dirname, './devBuild'),
-    filename: 'main.js'
+    filename: 'main.js',
+    publicPath: '/'
+  },
+  devServer: {
+    open: true,
+    historyApiFallback: true
   },
   module: {
     rules: [
