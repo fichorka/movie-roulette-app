@@ -1,8 +1,11 @@
 import React from 'react'
 import Card from './Card.jsx'
+import LoadButton from './LoadButton.jsx'
+import RouletteButton from './RouletteButton.jsx'
 
 // HomePage
-export default () => {
+export default (props) => {
+  const { state, dispatch } = props
   return (
     <div id='home-page' className='page left'>
       <div>
@@ -13,6 +16,8 @@ export default () => {
         <Card />
         <Card />
       </div>
+      <LoadButton />
+      <RouletteButton dispatch={dispatch} state={state} />
     </div>
   )
 }

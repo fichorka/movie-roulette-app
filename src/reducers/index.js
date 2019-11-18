@@ -16,6 +16,11 @@ export default (state, action) => {
         ...state,
         movieId: action.movieId
       }
+    case 'TOGGLE_MODAL':
+      return {
+        ...state,
+        isModalVisible: !state.isModalVisible
+      }
     default:
       return state
   }

@@ -4,8 +4,9 @@ import HomePage from './components/HomePage.jsx'
 import MoviePage from './components/MoviePage.jsx'
 import rootReducer from './reducers'
 import usePageTransition from './hookExtensions/usePageTransition'
+import RouletteModal from './components/RouletteModal.jsx'
 
-const initialState = { prevPage: null, page: null }
+const initialState = { prevPage: null, page: null, isModalVisible: false }
 // App component
 export default () => {
   const [state, dispatch] = useReducer(rootReducer, initialState)
@@ -15,8 +16,9 @@ export default () => {
   return (
     <>
       <Router>
-        <HomePage />
+        <HomePage state={state} dispatch={dispatch} />
         <MoviePage state={state} />
+        <RouletteModal state={state} />
 
         <Switch>
           <Route
