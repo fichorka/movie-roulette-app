@@ -21,7 +21,24 @@ export default (state, action) => {
         ...state,
         isModalVisible: !state.isModalVisible
       }
+    case 'ADD_MOVIE':
+      return {
+        ...state,
+        movies: [
+          ...state.movies,
+          action.movies
+        ]
+
+      }
+    case 'SET_SHOULD_LOAD':
+      return {
+        ...state,
+        isLoading: action.isLoading
+      }
     default:
       return state
   }
 }
+
+// selectors
+export const selectMovie = (state) => (state.movies.filter(m => m.id === state.movieId)[0])

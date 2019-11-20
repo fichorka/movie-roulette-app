@@ -1,8 +1,44 @@
+html {
+  font-size: 1.1vw;
+}
+
 body {
-  overflow: hidden;
   margin: 0 auto;
   background: #eee;
-  font: 6vw arial, sans-serif;
+  font: 1em arial, sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+$color: #111;
+
+.nav-button {
+  position: absolute;
+  width: 4vw;
+  height: 12vw;
+  box-sizing: border-box;
+  top: 4vw;
+  font-size: 2em;
+  line-height: 11.7vw;
+  background: #ddd;
+  color: #333; 
+}
+
+.left-button {
+  border-radius: 0 3vw 3vw 0;
+  left: 0;
+  padding-right: 0.4em;
+  text-align: right;
+
+}
+
+.right-button {
+  border-radius: 3vw 0 0 3vw;
+  right: 0;
+  padding-left: 0.4em;
+  text-align: left;
 }
 
 .page {
@@ -11,42 +47,118 @@ body {
   font-size: 1em;
   width: 100%;
   margin: 0 auto;
+  background: #eee;
 }
 
-svg * {
-  stroke-width: 4;
-  fill: none;
-  stroke: #333;
-}
+#movie-page {
+  .content {
+    $page-width: 100vw * 0.9;
+    $spacing: 2vw;
+    position: relative;
+    width: $page-width;
+    margin: 0 auto;
 
+    .title {
+      font-weight: normal;
+    }
+
+    .img {
+      position: relative;
+      margin: 0 auto;
+      width: 100%;
+      height: $page-width * 0.35;
+      background-color: #aaa;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 100%;
+    }
+
+    .textbox {
+      $max-lines: 4;
+      $line-height: 1.8rem;
+      position: absolute;
+      display: block;
+      line-height: 1.8rem;
+      font-size: 1.4rem;
+      width: 50vw;
+      background: #ddd;
+      height: $max-lines * $line-height;
+      bottom: 0;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      margin: 0;
+      border: 0.9rem solid #ddd;
+      opacity: 0.8;
+    }
+
+    .details {
+      position: absolute;
+      width: 100vw * 0.45;
+      left: 0;
+
+      .row {
+        display: block;
+        margin: $spacing 0;
+
+        .name {
+          font-size: 1em;
+        }
+
+        .value {
+          font-size: 0.8em;
+        }
+      }
+    }
+
+    #stars {
+      position: absolute;
+      right: 0;
+      display: inline-block;
+      font-size: 4vw;
+    }
+  }
+}
 
 // Card component
 .card {
+  color: $color;
+  $width: 90vw;
+  $spacing: 2.5vw;
+  font-size: 4rem;
   box-sizing: border-box;
-  width: 100%;
+  width: $width;
   background: #ddd;
-  margin: 2em auto;
-  padding: 0.1em 0;
-  box-sizing: border-box;
-
-  &>* {
-    width: 90%;
-    margin: 0.8em auto;
-  }
+  margin: 4vw auto;
+  padding: $spacing 0;
+  position: relative;
+  // display:inline-block;
 
   .img {
-    display: block;
+    $width: 85vw;
+    margin: 0 auto;
+    width: $width;
+    height: $width;
+    background-color: #aaa;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
   }
 
   .textbox {
+    width: $width;
+    margin: $spacing auto 0;
+
     .title {
       font-size: 1.2em;
       font-weight: normal;
-      margin: 0;
+      margin: 0 0 $spacing * .7;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .lang {
-      font-size: 0.8em;
+      font-size: 1em;
     }
   }
 }
@@ -55,24 +167,25 @@ button {
   &.floating-button {
     transition: width .2s, height .2s, bottom .2s, right .2s;
     position: fixed;
-    bottom: 4em;
-    right: 4em;
-    width: 4em;
-    height: 4em;
-    font-size: 0.7em;
+    bottom: 8rem;
+    right: 8rem;
+    width: 12rem;
+    height: 12rem;
+    font-size: 2rem;
     background: #aaa;
-    border: 0.1em dotted #000;
+    border: 0.4rem dotted #000;
     border-radius: 50%;
   }
 
   &.load-button {
-    margin: 2em 2em 4em;
-    width: 4em;
-    height: 4em;
-    font-size: 0.7em;
+    transition: width .2s, height .2s;
+    margin: 4rem 8rem 8rem;
+    width: 12rem;
+    height: 12rem;
+    font-size: 2rem;
     display: inline-block;
     background: #aaa;
-    border: 0.1em dotted #000;
+    border: 0.4rem dotted #000;
     border-radius: 50%;
   }
 }
@@ -83,9 +196,11 @@ button {
   width: 100vw;
   height: 100vh;
   background: #aaaaaa80;
+
   &.visible {
     display: block;
   }
+
   .form {
     position: absolute;
     display: block;
@@ -95,6 +210,7 @@ button {
     width: 80%;
 
     transform: translate(-50%, -50%);
+
     .title {
       font-size: 1.2em;
       font-weight: normal;
@@ -102,15 +218,19 @@ button {
       margin: 0;
       background: #aaa;
     }
+
     .content {
       padding: 1em;
       font-size: 1em;
+
       span {
         display: block;
       }
+
       input {
         margin-left: 1em
       }
+
       label {
         margin-left: .5em;
       }
@@ -124,15 +244,48 @@ button {
   }
 
   .card {
+    $width: (96vw / 4);
+    $spacing: $width * 0.05;
+    font-size: 1.4rem;
+
     display: inline-block;
-    width: (100% / 4);
-    margin: 2em (100% / 24);
+    width: $width;
+    margin: 4vw ($width / 6);
+    padding: $spacing 0;
+
+    .img {
+      $width: $width * 0.9;
+      margin: 0 auto;
+      width: $width;
+      height: $width;
+    }
+
+    .textbox {
+      $width: 90%;
+      width: $width;
+      margin: $spacing auto 0;
+
+      .title {
+        margin: 0 0 ($spacing / 2);
+      }
+    }
   }
 
   button {
     &.load-button {
+      font-size: 1.4rem;
       display: block;
-      margin: 0 auto 4em;
+      margin: 0 auto 6rem;
+      width: 6rem;
+      height: 6rem;
+    }
+
+    &.floating-button {
+      font-size: 1.4rem;
+      bottom: 6rem;
+      right: 6rem;
+      width: 6rem;
+      height: 6rem;
     }
   }
 }

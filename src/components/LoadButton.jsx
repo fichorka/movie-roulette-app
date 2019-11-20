@@ -1,9 +1,9 @@
 import React from 'react'
 
 // LoadButton
-export default () => {
+export default ({ handleOnload }) => {
   return (
-    <button className='load-button'>
+    <button className='load-button' onClick={() => handleOnload()}>
       LOAD
     </button>
   )
