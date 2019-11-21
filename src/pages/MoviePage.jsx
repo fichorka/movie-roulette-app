@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { selectMovie } from '../reducers'
-import extractMovieData from '../utilities/extractMovieData'
 
 // MoviePage
 export default ({ state }) => {
@@ -16,7 +15,7 @@ export default ({ state }) => {
     language,
     companies,
     stars
-  } = extractMovieData(movie)
+  } = movie
 
   return (
     <div id='movie-page' className='page right'>
@@ -38,7 +37,9 @@ export default ({ state }) => {
           </span>
           <span className='row'>
             <span className='name'>Companies: </span>
-            {companies}
+            <span className='value'>
+              {companies}
+            </span>
           </span>
         </div>
         <div className='rating'>

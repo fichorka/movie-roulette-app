@@ -6,7 +6,7 @@ export default ({ companies = [] }) => {
   return (
     companies.map((c, i) => {
       const lineEnd = (i + 1 === len ? '' : ', ')
-    <span key={c.id} className='value'>{c.name + lineEnd}</span>
+      return <span key={c.id} className='value'>{c.name + lineEnd}</span>
     })
   )
 }
