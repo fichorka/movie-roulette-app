@@ -1,45 +1,33 @@
-import React, { useReducer, useEffect } from 'react'
+import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import HomePage from './pages/HomePage.jsx'
 import MoviePage from './pages/MoviePage.jsx'
-import rootReducer from './reducers'
-import usePageTransition from './hookExtensions/usePageTransition'
-import RouletteModal from './components/RouletteModal.jsx'
-import { randomMovieId, productionCompanies } from './fetchMovies'
+import useStore from './customHooks/useStore'
+import usePageTransition from './customHooks/usePageTransition'
+import useMovieFetch from './customHooks/useMovieFetch.js'
+import useLoadStatus from './customHooks/useLoadStatus.js'
 
-const initialState = {
-  prevPage: null,
-  page: null,
-  isModalVisible: false,
-  isLoading: true,
-  // movies: [{}, {}, {}, {}, {}, {}]
-  movies: []
-}
 // App component
 export default () => {
-  const [state, dispatch] = useReducer(rootReducer, initialState)
-  console.log(state)
-  usePageTransition(state.prevPage, state.page)
-  console.log('App')
+  // initialize store
+  const { state, dispatch } = useStore()
 
-  // should be executed only once, not 3 times
-  useEffect(() => {
-    if (state.isLoading) {
-      for (let i = 6; i > 0; i--) {
-        randomMovieId()
-          .then(res => productionCompanies(res.id)
-            .then(res2 => ({ ...res, ...res2 }))
-            .then(res3 => dispatch({ type: 'ADD_MOVIE', movies: res }))).then(() => { if (i === 1) dispatch({ type: 'SET_SHOULD_LOAD', isLoading: false }) })
-      }
-    }
-  }, [state.isLoading])
+  usePageTransition(state.prevPage, state.page)
+
+  // calls fetch functions if isLoading === true
+  useMovieFetch(state.isLoading, dispatch)
+
+  // manage isLoaded state
+  useLoadStatus(state, dispatch)
+
   return (
     <>
       <Router>
+
         <HomePage state={state} dispatch={dispatch} />
         <MoviePage state={state} />
-        <RouletteModal state={state} />
 
+        {/* using routes for store updates */}
         <Switch>
           <Route
             exact path='/' render={() => {

@@ -1,37 +1,36 @@
-import React, { useState, useEffect } from 'react'
-import Card from '../components/Card.jsx'
+import React from 'react'
 import LoadButton from '../components/LoadButton.jsx'
 import RouletteButton from '../components/RouletteButton.jsx'
 import { Link } from 'react-router-dom'
+import useCards from '../customHooks/useCards.jsx'
+import RouletteModal from '../components/RouletteModal.jsx'
 
 // HomePage
 export default ({ state, dispatch }) => {
   function handleOnload () {
-    dispatch({ type: 'SET_SHOULD_LOAD', isLoading: true })
+    dispatch({ type: 'SET_IS_LOADING', isLoading: true })
   }
-  function renderMovies () {
-    return state.movies.map(m => (
-      <Card key={m.id} movie={m} />
-    ))
-  }
-  const [moviex, setMoviex] = useState(renderMovies())
-  useEffect(() => {
-    if (state.movies.length && state.movies.length % 6 === 0 && !state.isLoading) {
-      setMoviex(renderMovies())
-    }
-  }, [state.movies.length, state.isLoading])
+  const cards = useCards(state)
 
   return (
     <div id='home-page' className='page left'>
       <div className='content'>
-        <Link to={`/movies/${state.movieId}`}><div className='nav-button right-button'>›</div></Link>
-        {moviex}
-        {/* {!state.isLoading && state.movies.map(m => (
-          <Card key={m.id} movie={m} />
-        ))} */}
+        <nav>
+          <Link to={`/movies/${state.movieId}`}>
+            <div className='nav-button right-button'>›</div>
+          </Link>
+        </nav>
+
+        {/* ***cards*** */}
+        {cards}
+
       </div>
+
+      {/* floating buttons */}
       <LoadButton handleOnload={handleOnload} />
       <RouletteButton state={state} />
+
+      <RouletteModal state={state} />
     </div>
   )
 }

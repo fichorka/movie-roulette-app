@@ -3,7 +3,6 @@ export default (state, action) => {
   console.log('reducer')
   switch (action.type) {
     case 'SET_PAGE':
-      console.log(action.page)
       if (state.page === action.page) return state
       return {
         ...state,
@@ -28,12 +27,16 @@ export default (state, action) => {
           ...state.movies,
           action.movies
         ]
-
       }
-    case 'SET_SHOULD_LOAD':
+    case 'SET_IS_LOADING':
       return {
         ...state,
         isLoading: action.isLoading
+      }
+    case 'SET_IS_LOADED':
+      return {
+        ...state,
+        isLoaded: action.isLoaded
       }
     default:
       return state
