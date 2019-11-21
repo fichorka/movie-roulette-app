@@ -7,7 +7,12 @@ const initialState = {
   isModalVisible: false,
   isLoading: true,
   movies: [],
-  isLoaded: false
+  isLoaded: false,
+  imageConfig: {
+    baseUrl: 'https://image.tmdb.org/t/p/',
+    backdropSize: 'w1280',
+    posterSize: 'w500'
+  }
 }
 
 // useStore

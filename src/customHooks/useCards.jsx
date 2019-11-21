@@ -5,7 +5,7 @@ import Card from '../components/Card.jsx'
 export default (state) => {
   function renderCards () {
     return state.movies.map(m => (
-      <Card key={m.id} movie={m} />
+      <Card key={m.id} state={state} movie={m} />
     ))
   }
 

@@ -1,10 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { selectMovie } from '../reducers'
+import getImageUrl from '../utilities/getImageUrl'
 
 // MoviePage
 export default ({ state }) => {
-  const movie = selectMovie(state) || {}
+  const movie = selectMovie(state, state.movieId) || {}
 
   const {
     displayTitle,
@@ -17,12 +18,19 @@ export default ({ state }) => {
     stars
   } = movie
 
+  const {
+    baseUrl,
+    backdropSize
+  } = state.imageConfig
+
+  const imageUrl = getImageUrl(baseUrl, backdropSize, backdropPath)
+
   return (
     <div id='movie-page' className='page right'>
       <Link to='/'><div className='nav-button left-button'>‹</div></Link>
       <div className='content'>
         <h1 className='title'>{displayTitle}</h1>
-        <div className='img' style={{ backgroundImage: `url(https://image.tmdb.org/t/p/w1280${backdropPath})` }}>
+        <div className='img' style={{ backgroundImage: imageUrl }}>
           <p className='textbox'>{overview}</p>
         </div>
         <div className='details'>

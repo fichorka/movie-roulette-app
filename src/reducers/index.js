@@ -44,4 +44,4 @@ export default (state, action) => {
 }
 
 // selectors
-export const selectMovie = (state) => (state.movies.filter(m => m.id === state.movieId)[0])
+export const selectMovie = (state, id) => (state.movies.filter(m => m.id === id)[0])
