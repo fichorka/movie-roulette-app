@@ -8,7 +8,8 @@ export default ({ state, movie }) => {
     id = null,
     displayTitle = 'n/a',
     language = 'n/a',
-    posterPath = 'n/a'
+    posterPath = 'n/a',
+    voteAverage
   } = movie
 
   const {
@@ -28,6 +29,9 @@ export default ({ state, movie }) => {
             <h2 className='title'>{displayTitle}</h2>
             <span className='lang'>language: {language}</span>
           </div>
+          <span className='floating-rating'>
+            {voteAverage}
+          </span>
         </div>
       </Link>
     </>
