@@ -16,7 +16,7 @@ export default (movie, dispatch) => {
     original_language = 'n/a'
   } = movie
 
-  const year = movie ? ` (${release_date.slice(0, release_date.indexOf('-'))})` : ''
+  const year = movie ? `${release_date.slice(0, release_date.indexOf('-'))}` : ''
   const displayTitle = `${title} (${year})`
   const stars = extractStars(vote_average)
   const companies = extractCompanies(production_companies)
