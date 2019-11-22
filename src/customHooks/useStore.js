@@ -1,6 +1,6 @@
 import { useReducer } from 'react'
 import rootReducer from '../reducers'
-import { IMAGE_CONFIG, GENRES } from '../utilities/constants.js'
+import { IMAGE_CONFIG } from '../utilities/constants.js'
 
 // useStore
 export default () => {
@@ -15,6 +15,6 @@ const initialState = {
   isLoading: true,
   movies: [],
   isLoaded: false,
-  imageConfig: IMAGE_CONFIG,
-  genres: GENRES
+  isGenresFetched: false,
+  imageConfig: IMAGE_CONFIG
 }

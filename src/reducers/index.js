@@ -38,6 +38,16 @@ export default (state, action) => {
         ...state,
         isLoaded: action.isLoaded
       }
+    case 'SET_GENRES':
+      return {
+        ...state,
+        genres: action.genres
+      }
+    case 'SET_IS_GENRES_FETCHED':
+      return {
+        ...state,
+        isGenresFetched: action.isGenresFetched
+      }
     default:
       return state
   }

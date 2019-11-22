@@ -10,7 +10,7 @@ export default (props) => {
         <h1 className='title'>Movie Roulette</h1>
         <span className='query'>Select genre:</span>
         <div className='content'>
-          {state.genres.map(g => {
+          {state.isModalVisible && state.isGenresFetched && state.genres.map(g => {
             return (
               <Fragment key={g.id}>
                 <input type='radio' id={g.id} name='genre' value={g.id} />

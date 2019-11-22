@@ -3,6 +3,7 @@ const bearerToken = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlZDE4M2E5N2YyZWQ4NmU4ZDVmND
 const url = 'https://api.themoviedb.org/3'
 const discoverEndpoint = url + '/discover/movie?language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&include_'
 const movieEndpoint = url + '/movie/'
+const genreEnpoint = url + '/genre/movie/list?language=en-US'
 
 const options = {
   method: 'GET',
@@ -41,5 +42,15 @@ export function fetchMovie () {
       .then(res => productionCompanies(res.id)
         .then(res2 => ({ ...res, ...res2 }))
         .then(res3 => res3))
+  )
+}
+
+export function fetchGenres () {
+  const endpoint = genreEnpoint
+  return (
+    window.fetch(endpoint, options)
+      .then(res => res.json())
+      .then(res => { return res.genres })
+      .catch(err => console.log(err))
   )
 }

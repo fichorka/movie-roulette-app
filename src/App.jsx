@@ -6,6 +6,7 @@ import useStore from './customHooks/useStore'
 import usePageTransition from './customHooks/usePageTransition'
 import useMovieFetch from './customHooks/useMovieFetch.js'
 import useLoadStatus from './customHooks/useLoadStatus.js'
+import useGenreFetch from './customHooks/useGenreFetch.js'
 
 // App component
 export default () => {
@@ -19,6 +20,10 @@ export default () => {
 
   // manage isLoaded state
   useLoadStatus(state, dispatch)
+
+  //
+  useGenreFetch(state, dispatch)
+  console.log(state)
 
   return (
     <>
