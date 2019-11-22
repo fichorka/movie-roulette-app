@@ -17,7 +17,7 @@ export default () => {
   usePageTransition(state.prevPage, state.page)
 
   // calls fetch functions if isLoading === true
-  useMovieFetch(state.isLoading, dispatch)
+  // useMovieFetch(state.isLoading, dispatch)
 
   // manage isLoaded state
   useLoadStatus(state, dispatch)
