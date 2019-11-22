@@ -21,7 +21,7 @@ $color: #111;
   margin: 0 auto;
   font-size: 1.8rem;
   background: #ddd;
-  color: #333; 
+  color: #333;
   text-align: center;
   // padding-bottom: 1.5vw;
   border-radius: 0 0 3vw 3vw;
@@ -62,25 +62,34 @@ $color: #111;
 
     .textbox {
       $max-lines: 4;
-      $line-height: 1.8rem;
-      position: absolute;
+      $lh: 1.4em;
+      $h: ($max-lines * $lh);
+      box-sizing: border-box;
       display: block;
-      line-height: 1.8rem;
-      font-size: 1.4rem;
-      width: 50vw;
+      line-height: $lh;
+      font-size: 1em;
+      width: 100%;
       background: #ddd;
-      height: $max-lines * $line-height;
-      bottom: 0;
+      height: $max-lines * $lh;
+
       text-overflow: ellipsis;
       overflow: hidden;
       margin: 0;
-      border: 0.9rem solid #ddd;
+      border: 0.7rem solid #ddd;
       opacity: 0.8;
     }
 
+    .rating {
+      #stars {
+        position: static;
+        display: inline-block;
+        font-size: 1.2em;
+      }
+    }
+
     .details {
-      position: absolute;
-      width: 100vw * 0.45;
+      width: 100%;
+      position: static;
       left: 0;
 
       .row {
@@ -97,12 +106,6 @@ $color: #111;
       }
     }
 
-    #stars {
-      position: absolute;
-      right: 0;
-      display: inline-block;
-      font-size: 4vw;
-    }
   }
 }
 
@@ -157,8 +160,8 @@ $color: #111;
     line-height: 2.5em;
     text-align: center;
     border-radius: 50%;
-    top:-2vw;
-    right:1vw;
+    top: -2vw;
+    right: 1vw;
     // z-index: 1000;
     width: 2.5em;
     height: 2.5em;
@@ -167,6 +170,7 @@ $color: #111;
 
 .button {
   cursor: pointer;
+
   &.roulette {
     transition: width .2s, height .2s, bottom .2s, right .2s;
     position: fixed;
@@ -248,10 +252,35 @@ $color: #111;
 
   #movie-page {
     .content {
-    .img {
-      height: 90vw * 0.35;
+      .img {
+        height: 90vw * 0.35;
+      }
+
+      .textbox {
+        position: absolute;
+        bottom: 0;
+        width: 50vw;
+        box-sizing: content-box;
+      }
+
+      .rating {
+        position: absolute;
+        right:0;
+        
+        #stars {
+          position: absolute;
+          right: 0;
+          font-size: 3em;
+        }
+      }
+
+      .details {
+        width: 50%;
+        position: absolute;
+        width: 50%;
+        left: 0;
+      }
     }
-  }
   }
 
   .card {
@@ -280,31 +309,35 @@ $color: #111;
         font-size: 1.2em;
         margin: 0 0 ($spacing / 2);
       }
+
       .lang {
-        font-size:1em
+        font-size: 1em
       }
     }
+
     .floating-rating {
-      top:-1vw;
-      right:-1vw;
+      top: -1vw;
+      right: -1vw;
     }
   }
 
   .nav-button {
     position: absolute;
     width: 4vw;
-  height: 12vw;
-  line-height: 11.5vw;
-  top: 4vw;
+    height: 12vw;
+    line-height: 11.5vw;
+    top: 4vw;
     font-size: 2rem;
+
     &.left {
       left: 0;
       padding-right: 1.5vw;
       text-align: right;
       border-radius: 0 3vw 3vw 0;
     }
+
     &.right {
-      right:0;
+      right: 0;
       padding-left: 1.5vw;
       text-align: left;
       border-radius: 3vw 0 0 3vw;
@@ -313,6 +346,7 @@ $color: #111;
 
   .button {
     font-size: 1rem;
+
     &.load {
       display: block;
       margin: 0 auto 6vw;

@@ -30,8 +30,12 @@ export default ({ state }) => {
       <Link to='/'><div className='nav-button left'>‹</div></Link>
       <div className='content'>
         <h1 className='title'>{displayTitle}</h1>
-        <div className='img' style={{ backgroundImage: imageUrl }}>
-          <p className='textbox'>{overview}</p>
+        <div className='img' style={{ backgroundImage: imageUrl }} />
+        <p className='textbox'>{overview}</p>
+        <div className='rating'>
+          <div id='stars'>
+            {stars}
+          </div>
         </div>
         <div className='details'>
           <span className='row'>
@@ -50,12 +54,6 @@ export default ({ state }) => {
             </span>
           </span>
         </div>
-        <div className='rating'>
-          <div id='stars'>
-            {stars}
-          </div>
-        </div>
-
       </div>
     </div>
   )
