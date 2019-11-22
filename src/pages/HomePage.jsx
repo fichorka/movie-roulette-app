@@ -17,7 +17,7 @@ export default ({ state, dispatch }) => {
       <div className='content'>
         <nav>
           <Link to={`/movies/${state.movieId}`}>
-            <div className='nav-button right-button'>›</div>
+            <div className='nav-button right'>›</div>
           </Link>
         </nav>
 

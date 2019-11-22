@@ -1,5 +1,5 @@
 html {
-  font-size: 1.1vw;
+  font-size: 5vw;
 }
 
 body {
@@ -15,31 +15,18 @@ a {
 $color: #111;
 
 .nav-button {
-  position: absolute;
-  width: 4vw;
-  height: 12vw;
   box-sizing: border-box;
-  top: 4vw;
-  font-size: 2em;
-  line-height: 11.7vw;
+  width: 35vw;
+  height: 12.2vw;
+  margin: 0 auto;
+  font-size: 1.8rem;
   background: #ddd;
   color: #333; 
+  text-align: center;
+  // padding-bottom: 1.5vw;
+  border-radius: 0 0 3vw 3vw;
 }
 
-.left-button {
-  border-radius: 0 3vw 3vw 0;
-  left: 0;
-  padding-right: 0.4em;
-  text-align: right;
-
-}
-
-.right-button {
-  border-radius: 3vw 0 0 3vw;
-  right: 0;
-  padding-left: 0.4em;
-  text-align: left;
-}
 
 .page {
   overflow-y: auto;
@@ -52,7 +39,7 @@ $color: #111;
 
 #movie-page {
   .content {
-    $page-width: 100vw * 0.9;
+    $page-width: 90vw;
     $spacing: 2vw;
     position: relative;
     width: $page-width;
@@ -66,7 +53,7 @@ $color: #111;
       position: relative;
       margin: 0 auto;
       width: 100%;
-      height: $page-width * 0.35;
+      height: $page-width * 0.5;
       background-color: #aaa;
       background-repeat: no-repeat;
       background-position: center;
@@ -122,19 +109,18 @@ $color: #111;
 // Card component
 .card {
   color: $color;
-  $width: 90vw;
-  $spacing: 2.5vw;
-  font-size: 4rem;
+  $width: 100%;
+  $spacing: 4vw;
   box-sizing: border-box;
   width: $width;
   background: #ddd;
-  margin: 4vw auto;
+  margin: 8vw auto;
   padding: $spacing 0;
   position: relative;
   // display:inline-block;
 
   .img {
-    $width: 85vw;
+    $width: 90vw;
     margin: 0 auto;
     width: $width;
     height: $width;
@@ -165,42 +151,44 @@ $color: #111;
   .floating-rating {
     position: absolute;
     display: inline-block;
+    font-size: 1em;
     // background: #e81;
     background: #bbb;
     line-height: 2.5em;
     text-align: center;
     border-radius: 50%;
-    top:-1vw;
-    right:-0.5vw;
+    top:-2vw;
+    right:1vw;
     // z-index: 1000;
     width: 2.5em;
     height: 2.5em;
   }
 }
 
-button {
-  &.floating-button {
+.button {
+  cursor: pointer;
+  &.roulette {
     transition: width .2s, height .2s, bottom .2s, right .2s;
     position: fixed;
-    bottom: 8rem;
-    right: 8rem;
-    width: 12rem;
-    height: 12rem;
-    font-size: 2rem;
+    bottom: 10vw;
+    right: 10vw;
+    width: 14vw;
+    height: 14vw;
+    font-size: 0.65rem;
     background: #aaa;
-    border: 0.4rem dotted #000;
+    border: 0.7vw dotted #000;
     border-radius: 50%;
   }
 
-  &.load-button {
+  &.load {
     transition: width .2s, height .2s;
-    margin: 4rem 8rem 8rem;
-    width: 12rem;
-    height: 12rem;
-    font-size: 2rem;
+    margin: 4vw 10vw 10vw;
+    width: 14vw;
+    height: 14vw;
+    font-size: 0.65rem;
     display: inline-block;
     background: #aaa;
-    border: 0.4rem dotted #000;
+    border: 0.7vw dotted #000;
     border-radius: 50%;
   }
 }
@@ -254,14 +242,22 @@ button {
 }
 
 @media screen and (min-width: 800px) {
-  body {
-    font-size: 2vw;
+  html {
+    font-size: 1.6vw;
+  }
+
+  #movie-page {
+    .content {
+    .img {
+      height: 90vw * 0.35;
+    }
+  }
   }
 
   .card {
     $width: (96vw / 4);
     $spacing: $width * 0.05;
-    font-size: 1.4rem;
+    font-size: 1em;
 
     display: inline-block;
     width: $width;
@@ -281,7 +277,11 @@ button {
       margin: $spacing auto 0;
 
       .title {
+        font-size: 1.2em;
         margin: 0 0 ($spacing / 2);
+      }
+      .lang {
+        font-size:1em
       }
     }
     .floating-rating {
@@ -290,21 +290,43 @@ button {
     }
   }
 
-  button {
-    &.load-button {
-      font-size: 1.4rem;
+  .nav-button {
+    position: absolute;
+    width: 4vw;
+  height: 12vw;
+  line-height: 11.5vw;
+  top: 4vw;
+    font-size: 2rem;
+    &.left {
+      left: 0;
+      padding-right: 1.5vw;
+      text-align: right;
+      border-radius: 0 3vw 3vw 0;
+    }
+    &.right {
+      right:0;
+      padding-left: 1.5vw;
+      text-align: left;
+      border-radius: 3vw 0 0 3vw;
+    }
+  }
+
+  .button {
+    font-size: 1rem;
+    &.load {
       display: block;
-      margin: 0 auto 6rem;
-      width: 6rem;
-      height: 6rem;
+      margin: 0 auto 6vw;
+      width: 6vw;
+      height: 6vw;
+      border-width: 0.3vw
     }
 
-    &.floating-button {
-      font-size: 1.4rem;
-      bottom: 6rem;
-      right: 6rem;
-      width: 6rem;
-      height: 6rem;
+    &.roulette {
+      bottom: 6vw;
+      right: 6vw;
+      width: 6vw;
+      height: 6vw;
+      border-width: 0.3vw;
     }
   }
 }

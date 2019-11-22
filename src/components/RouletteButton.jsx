@@ -4,7 +4,7 @@ import React from 'react'
 export default (props) => {
   return (
     <button
-      className='floating-button' onClick={() => props.dispatch({ type: 'TOGGLE_MODAL' })}
+      className='button roulette' onClick={() => props.dispatch({ type: 'TOGGLE_MODAL' })}
     >
       XXX
     </button>

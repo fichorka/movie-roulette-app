@@ -27,7 +27,7 @@ export default ({ state }) => {
 
   return (
     <div id='movie-page' className='page right'>
-      <Link to='/'><div className='nav-button left-button'>‹</div></Link>
+      <Link to='/'><div className='nav-button left'>‹</div></Link>
       <div className='content'>
         <h1 className='title'>{displayTitle}</h1>
         <div className='img' style={{ backgroundImage: imageUrl }}>
