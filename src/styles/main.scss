@@ -63,14 +63,14 @@ $color: #111;
     .textbox {
       $max-lines: 4;
       $lh: 1.4em;
-      $h: ($max-lines * $lh);
+      $h: (($max-lines + 1) * $lh);
       box-sizing: border-box;
       display: block;
       line-height: $lh;
       font-size: 1em;
       width: 100%;
       background: #ddd;
-      height: $max-lines * $lh;
+      height: $h;
 
       text-overflow: ellipsis;
       overflow: hidden;
@@ -260,7 +260,6 @@ $color: #111;
         position: absolute;
         bottom: 0;
         width: 50vw;
-        box-sizing: content-box;
       }
 
       .rating {
@@ -270,7 +269,7 @@ $color: #111;
         #stars {
           position: absolute;
           right: 0;
-          font-size: 3em;
+          font-size: 2.5em;
         }
       }
 
