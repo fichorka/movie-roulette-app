@@ -12,12 +12,14 @@ export default ({ state, movie }) => {
     voteAverage
   } = movie
 
+  const { posterSizeIndex: i } = state
+
   const {
     baseUrl,
-    posterSize
+    posterSizes
   } = state.imageConfig
 
-  const imageUrl = getImageUrl(baseUrl, posterSize, posterPath)
+  const imageUrl = getImageUrl(baseUrl, posterSizes[i], posterPath)
 
   return (
     <>

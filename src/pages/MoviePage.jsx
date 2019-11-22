@@ -18,12 +18,14 @@ export default ({ state }) => {
     stars
   } = movie
 
+  const { backdropSizeIndex: i } = state
+
   const {
     baseUrl,
-    backdropSize
+    backdropSizes
   } = state.imageConfig
 
-  const imageUrl = getImageUrl(baseUrl, backdropSize, backdropPath)
+  const imageUrl = getImageUrl(baseUrl, backdropSizes[i], backdropPath)
 
   return (
     <div id='movie-page' className='page right'>

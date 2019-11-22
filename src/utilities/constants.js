@@ -1,7 +1,21 @@
 // constants
 
+// used as default values before fetch happens
 export const IMAGE_CONFIG = {
   baseUrl: 'https://image.tmdb.org/t/p/',
-  backdropSize: 'w1280',
-  posterSize: 'w500'
+  backdropSizes: [
+    'w300',
+    'w780',
+    'w1280',
+    'original'
+  ],
+  posterSizes: [
+    'w92',
+    'w154',
+    'w185',
+    'w342',
+    'w500',
+    'w780',
+    'original'
+  ]
 }

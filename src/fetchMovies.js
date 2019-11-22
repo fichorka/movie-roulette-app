@@ -4,6 +4,7 @@ const url = 'https://api.themoviedb.org/3'
 const discoverEndpoint = url + '/discover/movie?language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&include_'
 const movieEndpoint = url + '/movie/'
 const genreEnpoint = url + '/genre/movie/list?language=en-US'
+const imageConfigEndpoint = url + '/configuration'
 
 const options = {
   method: 'GET',
@@ -54,3 +55,14 @@ export function fetchGenres () {
       .catch(err => console.log(err))
   )
 }
+
+export function fetchImageConfig () {
+  const endpoint = imageConfigEndpoint
+  return (
+    window.fetch(endpoint, options)
+      .then(res => res.json())
+      .then(res => { return res.images })
+      .catch(err => console.log(err))
+  )
+}
+fetchImageConfig()

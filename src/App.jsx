@@ -7,6 +7,7 @@ import usePageTransition from './customHooks/usePageTransition'
 import useMovieFetch from './customHooks/useMovieFetch.js'
 import useLoadStatus from './customHooks/useLoadStatus.js'
 import useGenreFetch from './customHooks/useGenreFetch.js'
+import useImageConfigFetch from './customHooks/useImageConfigFetch.js'
 
 // App component
 export default () => {
@@ -21,9 +22,11 @@ export default () => {
   // manage isLoaded state
   useLoadStatus(state, dispatch)
 
-  //
+  // runs after all the movies are fetched
+  useImageConfigFetch(state, dispatch)
+
+  // runs only the first time user opens a modal
   useGenreFetch(state, dispatch)
-  console.log(state)
 
   return (
     <>

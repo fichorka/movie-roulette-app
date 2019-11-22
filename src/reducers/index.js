@@ -48,6 +48,16 @@ export default (state, action) => {
         ...state,
         isGenresFetched: action.isGenresFetched
       }
+    case 'SET_IMAGE_CONFIG':
+      return {
+        ...state,
+        imageConfig: action.imageConfig
+      }
+    case 'SET_IS_IMAGE_CONFIG_FETCHED':
+      return {
+        ...state,
+        isImageConfigFetched: action.isImageConfigFetched
+      }
     default:
       return state
   }
