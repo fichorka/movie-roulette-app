@@ -199,7 +199,9 @@ $color: #111;
 
 .modal {
   display: none;
-  position: relative;
+  position: fixed;
+  left: 0;
+  top: 0;
   width: 100vw;
   height: 100vh;
   background: #aaaaaa80;
@@ -215,8 +217,14 @@ $color: #111;
     left: 50%;
     background: #eee;
     width: 80%;
+    overflow: hidden;
 
     transform: translate(-50%, -50%);
+
+    .query {
+      display: block;
+      padding:0.5em 1em;
+    }
 
     .title {
       font-size: 1.2em;
@@ -227,8 +235,12 @@ $color: #111;
     }
 
     .content {
-      padding: 1em;
+      box-sizing: content-box;
+      border-bottom: 4vw solid #eee;
+      margin: 0 0 0 2vw;
       font-size: 1em;
+      overflow-y: scroll;
+      max-height: 30vh;
 
       span {
         display: block;

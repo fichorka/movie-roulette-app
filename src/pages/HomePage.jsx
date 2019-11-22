@@ -28,7 +28,7 @@ export default ({ state, dispatch }) => {
 
       {/* floating buttons */}
       <LoadButton handleOnload={handleOnload} />
-      <RouletteButton state={state} />
+      <RouletteButton dispatch={dispatch} />
 
       <RouletteModal state={state} />
     </div>
