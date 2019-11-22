@@ -1,6 +1,6 @@
 // constants
 
-// used as default values before fetch happens
+// used as default values before fetchImageConfig happens
 export const IMAGE_CONFIG = {
   baseUrl: 'https://image.tmdb.org/t/p/',
   backdropSizes: [

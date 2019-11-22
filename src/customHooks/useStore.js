@@ -16,5 +16,7 @@ const initialState = {
   movies: [],
   isLoaded: false,
   isGenresFetched: false,
-  imageConfig: IMAGE_CONFIG
+  imageConfig: IMAGE_CONFIG,
+  backdropSizeIndex: 2,
+  posterSizeIndex: 4
 }

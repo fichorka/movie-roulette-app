@@ -8,7 +8,7 @@ export default ({ isImageConfigFetched, isLoaded }, dispatch) => {
     if (isLoaded && !isImageConfigFetched) {
       fetchImageConfig()
         .then(res => extractImageConfigData(res))
-        .then(res => dispatch({ type: 'SET_IMAGE_CONFIG', genres: res }))
+        .then(res => dispatch({ type: 'SET_IMAGE_CONFIG', imageConfig: res }))
         .then(() => dispatch({ type: 'SET_IS_IMAGE_CONFIG_FETCHED', isImageConfigFetched: true }))
     }
   }, [isLoaded, isImageConfigFetched])

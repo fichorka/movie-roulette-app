@@ -27,6 +27,7 @@ export default () => {
 
   // runs only the first time user opens a modal
   useGenreFetch(state, dispatch)
+  console.log(state)
 
   return (
     <>
