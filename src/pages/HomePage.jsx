@@ -30,7 +30,7 @@ export default ({ state, dispatch }) => {
       <LoadButton handleOnload={handleOnload} />
       <RouletteButton dispatch={dispatch} />
 
-      <RouletteModal state={state} />
+      <RouletteModal state={state} dispatch={dispatch} />
     </div>
   )
 }

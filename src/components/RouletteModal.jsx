@@ -1,12 +1,15 @@
 import React, { Fragment } from 'react'
 
 // RouletteModal
-export default (props) => {
-  const { state } = props
+export default ({ state, dispatch }) => {
   const visibilityClass = state.isModalVisible ? ' visible' : ''
   return (
     <div className={'modal' + visibilityClass}>
-      <form className='form'>
+      <form
+        className='form' onChange={e => {
+          dispatch({ type: 'SET_SELECTED_GENRE', selectedGenre: e.target.value })
+        }}
+      >
         <h1 className='title'>Movie Roulette</h1>
         <span className='query'>Select genre:</span>
         <div className='content'>
@@ -19,13 +22,6 @@ export default (props) => {
             )
           })}
         </div>
-        {/* <input type='radio' id='drama' name='genre' value='drama' />
-          <label htmlFor='drama'>drama</label><br />
-          <input type='radio' id='action' name='genre' value='action' />
-          <label htmlFor='action'>action</label><br />
-          <input type='radio' id='comedy' name='genre' value='comedy' />
-          <label htmlFor='comedy'>comedy</label><br /> */}
-
       </form>
     </div>
   )
