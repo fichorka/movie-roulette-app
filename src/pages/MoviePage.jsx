@@ -2,10 +2,11 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { selectMovie } from '../reducers'
 import getImageUrl from '../utilities/getImageUrl'
+import extractMovieData from '../utilities/extractMovieData'
 
 // MoviePage
 export default ({ state }) => {
-  const movie = selectMovie(state, state.movieId) || {}
+  const movie = selectMovie(state, state.movieId) || extractMovieData({})
 
   const {
     displayTitle,

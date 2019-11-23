@@ -5,19 +5,19 @@ import extractCompanies from './extractCompanies'
 export default (movie, dispatch) => {
   const {
     id,
-    title = 'Movie not found',
+    title = '(Unknown title)',
     release_date = 'n/a',
     backdrop_path = '',
     poster_path = '',
     overview = '',
-    vote_average = 'n/a',
+    vote_average = 0,
     popularity = 'n/a',
-    production_companies = ['n/a'],
+    production_companies = [{ name: 'n/a' }],
     original_language = 'n/a'
   } = movie
 
-  const year = movie ? `${release_date.slice(0, release_date.indexOf('-'))}` : ''
-  const displayTitle = `${title} (${year})`
+  const year = movie.id ? `${release_date.slice(0, release_date.indexOf('-'))}` : ''
+  const displayTitle = movie.id ? `${title} (${year})` : title
   const stars = extractStars(vote_average)
   const companies = extractCompanies(production_companies)
 
