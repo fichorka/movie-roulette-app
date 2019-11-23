@@ -198,16 +198,19 @@ $color: #111;
 }
 
 .modal {
-  display: none;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.5s, z-index 0.5s;
   position: fixed;
   left: 0;
   top: 0;
   width: 100vw;
   height: 100vh;
-  background: #aaaaaa80;
+  background: #000000aa;
 
   &.visible {
-    display: block;
+    z-index: 1;
+    opacity: 1;
   }
 
   .form {
@@ -227,11 +230,28 @@ $color: #111;
     }
 
     .title {
+      box-sizing: border-box;
       font-size: 1.2em;
       font-weight: normal;
-      padding: 0.4em 1em;
+      padding: 0.7em 0 0.7em 1em;
       margin: 0;
       background: #aaa;
+      display:inline-block;
+      width:80%;
+    }
+
+    .close-btn {
+      cursor: pointer;
+      box-sizing: border-box;
+      background: #aaa;
+      display: inline-block;
+      width: 20%;
+      padding: 0.7em 0;
+      font-size: 1.2em;
+      text-align: center;
+      &:hover {
+        background: #999;
+      }
     }
 
     .content {
@@ -329,6 +349,12 @@ $color: #111;
     .floating-rating {
       top: -1vw;
       right: -1vw;
+    }
+  }
+
+  .modal {
+    .form {
+      width: 40%;
     }
   }
 

@@ -34,6 +34,7 @@ const initialState = {
   isLoading: true,
   movies: [],
   isLoaded: false,
+  genres: [],
   isGenresFetched: false,
   imageConfig: IMAGE_CONFIG,
   backdropSizeIndex: 2,
