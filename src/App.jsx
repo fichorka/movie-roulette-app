@@ -18,7 +18,7 @@ export default () => {
   usePageTransition(state.prevPage, state.page)
 
   // calls fetch functions if isLoading === true
-  useMovieFetch(state.isLoading, dispatch)
+  useMovieFetch(state, dispatch)
 
   // removes and fetches new movies on genre change
   useGenreSet(state, dispatch)
