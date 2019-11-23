@@ -32,20 +32,20 @@ const initialState = {
   page: null,
   isModalVisible: false,
   isLoading: true,
-  // movies: [],
+  movies: [],
   isLoaded: false,
   isGenresFetched: false,
   imageConfig: IMAGE_CONFIG,
   backdropSizeIndex: 2,
   posterSizeIndex: 4,
-  selectedGenre: '',
+  selectedGenre: ''
   // dev Templates
-  movies: [
-    MOVIE,
-    MOVIE,
-    MOVIE,
-    MOVIE,
-    MOVIE,
-    MOVIE
-  ]
+  // movies: [
+  //   MOVIE,
+  //   MOVIE,
+  //   MOVIE,
+  //   MOVIE,
+  //   MOVIE,
+  //   MOVIE
+  // ]
 }
