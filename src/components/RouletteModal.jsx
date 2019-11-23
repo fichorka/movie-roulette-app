@@ -8,6 +8,7 @@ export default ({ state, dispatch }) => {
       <form
         className='form' onChange={e => {
           dispatch({ type: 'SET_SELECTED_GENRE', selectedGenre: e.target.value })
+          dispatch({ type: 'TOGGLE_MODAL' })
         }}
       >
         <h1 className='title'>Movie Roulette</h1>
