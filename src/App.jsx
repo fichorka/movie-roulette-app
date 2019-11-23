@@ -8,6 +8,7 @@ import useMovieFetch from './customHooks/useMovieFetch.js'
 import useLoadStatus from './customHooks/useLoadStatus.js'
 import useGenreFetch from './customHooks/useGenreFetch.js'
 import useImageConfigFetch from './customHooks/useImageConfigFetch.js'
+import useGenreSet from './customHooks/useGenreSet.js'
 
 // App component
 export default () => {
@@ -18,6 +19,9 @@ export default () => {
 
   // calls fetch functions if isLoading === true
   // useMovieFetch(state.isLoading, dispatch)
+
+  // removes and fetches new movies on genre change
+  useGenreSet(state, dispatch)
 
   // manage isLoaded state
   useLoadStatus(state, dispatch)

@@ -28,6 +28,11 @@ export default (state, action) => {
           action.movies
         ]
       }
+    case 'REMOVE_ALL_MOVIES':
+      return {
+        ...state,
+        movies: []
+      }
     case 'SET_IS_LOADING':
       return {
         ...state,
