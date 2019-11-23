@@ -6,14 +6,24 @@ export default ({ state, dispatch }) => {
     dispatch({ type: 'TOGGLE_MODAL' })
   }
   function handleSubmit (e) {
-    dispatch({ type: 'SET_SELECTED_GENRE', selectedGenre: e.target.value })
-    dispatch({ type: 'TOGGLE_MODAL' })
+    const { target } = e
+    for (const t in target) {
+      if (target[t].checked) {
+        dispatch({ type: 'SET_SELECTED_GENRE', selectedGenre: target[t].value })
+        dispatch({ type: 'TOGGLE_MODAL' })
+        break
+      }
+    }
   }
   const visibilityClass = state.isModalVisible ? ' visible' : ''
   return (
     <div className={'modal' + visibilityClass}>
       <form
         className='form'
+        onSubmit={e => {
+          e.preventDefault()
+          handleSubmit(e)
+        }}
       >
         <h1 className='title'>Movie Roulette</h1>
         <span className='close-btn' onClick={closeModal}>X</span>
@@ -28,7 +38,7 @@ export default ({ state, dispatch }) => {
             )
           })}
         </div>
-        <button className='roll-button' onCLick={handleSubmit}>ROLL</button>
+        <input className='roll-button' type='submit' value='ROLL' />
       </form>
     </div>
   )
