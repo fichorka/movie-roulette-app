@@ -1,7 +1,7 @@
 const bearerToken = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlZDE4M2E5N2YyZWQ4NmU4ZDVmNDAzZjFkMjVhYmMwYSIsInN1YiI6IjVkYzQ3NzdkNjgxODg4MDAxOWJjNjE2NyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.5QyZpDrUJm_uKVZNalshlpy41jbXoRDNNOgUuzozpiU'
 
 const url = 'https://api.themoviedb.org/3'
-const discoverEndpoint = url + '/discover/movie?language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&include_'
+const discoverEndpoint = url + '/discover/movie?language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false'
 const movieEndpoint = url + '/movie/'
 const genreEnpoint = url + '/genre/movie/list?language=en-US'
 const imageConfigEndpoint = url + '/configuration'
@@ -13,12 +13,14 @@ const options = {
     'Content-Type': 'application/json; charset=utf-8'
   }
 }
-
+randomMovieId()
 // fetch functions
-export function randomMovieId () {
+export function randomMovieId (genreId) {
   const randomPage = Math.ceil(Math.random() * 100)
   const randomIndex = Math.floor(Math.random() * 20)
-  const endpoint = discoverEndpoint + `&page=${randomPage}`
+  const genreQuery = genreId ? `&with_genres=${genreId}` : ''
+  const pageQuery = `&page=${randomPage}`
+  const endpoint = discoverEndpoint + `${pageQuery}${genreQuery}`
   return (
     window.fetch(endpoint, options)
       .then(res => res.json())
@@ -37,9 +39,9 @@ export function productionCompanies (id) {
   )
 }
 
-export function fetchMovie () {
+export function fetchMovie (genreId) {
   return (
-    randomMovieId()
+    randomMovieId(genreId)
       .then(res => productionCompanies(res.id)
         .then(res2 => ({ ...res, ...res2 }))
         .then(res3 => res3))
@@ -65,4 +67,3 @@ export function fetchImageConfig () {
       .catch(err => console.log(err))
   )
 }
-fetchImageConfig()
