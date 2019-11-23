@@ -27,6 +27,7 @@ export default ({ state, dispatch }) => {
             )
           })}
         </div>
+        <button className='roll-button'>ROLL</button>
       </form>
     </div>
   )

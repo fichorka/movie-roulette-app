@@ -12,6 +12,10 @@ a {
   text-decoration: none;
 }
 
+button {
+  outline: none;
+}
+
 $color: #111;
 
 .nav-button {
@@ -170,6 +174,10 @@ $color: #111;
 
 .button {
   cursor: pointer;
+  font-size: 0.65rem;
+  background: #aaa;
+    border: 0.7vw dotted #000;
+    border-radius: 50%;
 
   &.roulette {
     transition: width .2s, height .2s, bottom .2s, right .2s;
@@ -178,10 +186,6 @@ $color: #111;
     right: 10vw;
     width: 14vw;
     height: 14vw;
-    font-size: 0.65rem;
-    background: #aaa;
-    border: 0.7vw dotted #000;
-    border-radius: 50%;
   }
 
   &.load {
@@ -189,11 +193,7 @@ $color: #111;
     margin: 4vw 10vw 10vw;
     width: 14vw;
     height: 14vw;
-    font-size: 0.65rem;
     display: inline-block;
-    background: #aaa;
-    border: 0.7vw dotted #000;
-    border-radius: 50%;
   }
 }
 
@@ -214,6 +214,7 @@ $color: #111;
   }
 
   .form {
+    transition: all 0.2s;
     position: absolute;
     display: block;
     top: 50%;
@@ -255,31 +256,49 @@ $color: #111;
     }
 
     .content {
-      box-sizing: content-box;
-      border-bottom: 4vw solid #eee;
-      margin: 0 0 0 2vw;
+      padding: 1vw 0 1vw 1rem;
+      // box-sizing: border-box;
+      // box-shadow: inset 3px 3px 5px 6px #ccc;
+      margin-bottom: 6vw;
+      // background: #ddd;
       font-size: 1em;
       overflow-y: scroll;
-      max-height: 30vh;
+      max-height: 28vh;
+      // border-top: 1vw solid #ddd;
+      // border-bottom: 1vw solid #ddd;
 
       span {
         display: block;
       }
 
       input {
-        margin-left: 1em
+        margin-left: 1em;
       }
 
       label {
+        display: inline-block;
         margin-left: .5em;
+        padding: 0.25em 0;
       }
+    }
+
+    .roll-button {
+      background: #555;
+      text-align: center;
+      width: 80%;
+      border: none;
+      font-size: 1em;
+      padding: 0.5em 0;
+      margin: 0 auto;
+      display: block; 
+      margin-bottom: 6vw;
     }
   }
 }
 
 @media screen and (min-width: 800px) {
   html {
-    font-size: 1.6vw;
+    font-size: 1.8vw;
   }
 
   #movie-page {
@@ -301,7 +320,7 @@ $color: #111;
         #stars {
           position: absolute;
           right: 0;
-          font-size: 2.5em;
+          font-size: 2.2em;
         }
       }
 
@@ -354,7 +373,15 @@ $color: #111;
 
   .modal {
     .form {
-      width: 40%;
+      width: 35%;
+      .content {
+        margin: 0 auto 2vw;
+        width: 70%;
+        max-height: 35vh;
+      }
+      .roll-button {
+        margin-bottom: 2vw;
+      }
     }
   }
 
