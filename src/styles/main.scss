@@ -109,11 +109,13 @@ button {
         width: 100%;
         background: $background2;
         height: $h;
-
         text-overflow: ellipsis;
-        overflow: hidden;
+        overflow-x: hidden;
+        overflow-y: auto;
+        padding-right: 0.7rem;
         margin: 0;
         border: 0.7rem solid $background2;
+        border-right: none;
         opacity: 0.8;
       }
 
