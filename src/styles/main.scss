@@ -181,10 +181,11 @@ $background6: #555;
 
 .button {
   cursor: pointer;
-  font-size: 0.65rem;
+  font-size: 0.6rem;
   background: #aaa;
     border: 0.7vw dotted $color1;
     border-radius: 50%;
+    padding: 0;
 
   &.roulette {
     transition: width .2s, height .2s, bottom .2s, right .2s;
@@ -422,7 +423,7 @@ $background6: #555;
   }
 
   .button {
-    font-size: 1rem;
+    font-size: 0.5rem;
 
     &.load {
       display: block;
