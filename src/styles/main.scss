@@ -18,6 +18,8 @@ button {
 
 
 #app {
+  $boxShadow: 0 0 .2em 0 #000;
+
   // assigning theme color variables from css variables (defined in themes.scss)
   $color1: var(--color1);
   $colorOn: var(--colorOn);
@@ -45,6 +47,7 @@ button {
         text-align: center;
         // padding-bottom: 1.5vw;
         border-radius: 0 0 3vw 3vw;
+        box-shadow: $boxShadow;
       }
     }
   }
@@ -61,6 +64,7 @@ button {
     background: $background2;
     position: fixed;
     cursor: pointer;
+    box-shadow: $boxShadow;
   }
 
 
