@@ -12,6 +12,7 @@
 .page {
   position: absolute;
   overflow-x: hidden;
+  overflow-y: auto;
   opacity: 0;
   &.left {
     left: -100vw;
