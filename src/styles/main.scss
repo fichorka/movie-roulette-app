@@ -210,11 +210,12 @@ button {
     }
   }
 
+
   .button {
     cursor: pointer;
     font-size: 0.6rem;
     background: $background3;
-    border: 0.7vw dotted $color1;
+    border: 0.2rem dotted $color1;
     border-radius: 50%;
     padding: 0;
     color: $color1;
@@ -427,6 +428,11 @@ button {
       }
     }
 
+
+    .content a:nth-last-child(-n+3) .card {
+      margin-bottom: 0;
+    }
+
     .modal {
       .form {
         width: 35%;
@@ -472,22 +478,18 @@ button {
     }
 
     .button {
-      font-size: 0.5rem;
-
       &.load {
         display: block;
-        margin: 0 auto 6vw;
-        width: 6vw;
-        height: 6vw;
-        border-width: 0.3vw
+        margin: 3rem auto 2.3rem;
+        width: 3.5rem;
+        height: 3.5rem;
       }
 
       &.roulette {
-        bottom: 6vw;
-        right: 6vw;
-        width: 6vw;
-        height: 6vw;
-        border-width: 0.3vw;
+        bottom: 3rem;
+        right: 3rem;
+        width: 3.5rem;
+        height: 3.5rem;
       }
     }
   }
