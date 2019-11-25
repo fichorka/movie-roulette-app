@@ -387,7 +387,7 @@ button {
       $width: (96vw / 4);
       $spacing: $width * 0.05;
       font-size: 1em;
-
+      border-radius: 2%;
       display: inline-block;
       width: $width;
       margin: 4vw ($width / 6);
