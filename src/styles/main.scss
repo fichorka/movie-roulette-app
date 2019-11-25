@@ -19,6 +19,7 @@ button {
 
 #app {
   $boxShadow: 0 0 .2em 0 #000;
+  $btnTrans: background .2s, color .2s;
 
   // assigning theme color variables from css variables (defined in themes.scss)
   $color1: var(--color1);
@@ -37,6 +38,7 @@ button {
       margin: 0 auto;
 
       .nav-button {
+        transition: $btnTrans;
         box-sizing: content-box;
         width: 35vw;
         height: 12.2vw;
@@ -48,11 +50,17 @@ button {
         // padding-bottom: 1.5vw;
         border-radius: 0 0 3vw 3vw;
         box-shadow: $boxShadow;
+
+        &:hover {
+          background: $background3;
+          color: $background1;
+        }
       }
     }
   }
 
   .ui-button {
+    transition: $btnTrans;
     width: 12.2vw;
     color: $colorOn;
     height: 12.2vw;
@@ -65,6 +73,10 @@ button {
     position: fixed;
     cursor: pointer;
     box-shadow: $boxShadow;
+    &:hover {
+      background: $background3;
+      color: $background1
+    }
   }
 
 
@@ -215,6 +227,7 @@ button {
 
 
   .button {
+    transition: $btnTrans, width .2s, height .2s, bottom .2s, right .2s;
     cursor: pointer;
     font-size: 0.6rem;
     background: $background3;
@@ -222,9 +235,12 @@ button {
     border-radius: 50%;
     padding: 0;
     color: $color1;
+    &:hover {
+      background: $background4;
+      color: $background1
+    }
 
     &.roulette {
-      transition: width .2s, height .2s, bottom .2s, right .2s;
       position: fixed;
       bottom: 10vw;
       right: 10vw;
@@ -233,7 +249,6 @@ button {
     }
 
     &.load {
-      transition: width .2s, height .2s;
       margin: 4vw 10vw 10vw;
       width: 18vw;
       height: 18vw;
@@ -245,7 +260,7 @@ button {
     z-index: -1;
     visibility: hidden;
     opacity: 0;
-    transition: opacity 0.25s, z-index 0.5s;
+    transition: opacity .3s, z-index .3s, visibility .3s;
     position: fixed;
     left: 0;
     top: 0;
@@ -256,6 +271,7 @@ button {
 
     &.visible {
       visibility: visible;
+      transition: opacity .3s;
       z-index: 1;
       opacity: 1;
     }
@@ -331,8 +347,10 @@ button {
       }
 
       .roll-button {
-        background: $background5;
+        transition: $btnTrans;
+        background: $background3;
         text-align: center;
+        color: $color1;
         width: 80%;
         border: none;
         font-size: 1em;
@@ -340,6 +358,11 @@ button {
         margin: 0 auto;
         display: block;
         margin-bottom: 6vw;
+
+        &:hover {
+          background: $background6;
+          color: $background1;
+        }
       }
     }
   }
