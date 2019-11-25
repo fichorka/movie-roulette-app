@@ -9,12 +9,17 @@ import useLoadStatus from './customHooks/useLoadStatus.js'
 import useGenreFetch from './customHooks/useGenreFetch.js'
 import useImageConfigFetch from './customHooks/useImageConfigFetch.js'
 import useGenreSet from './customHooks/useGenreSet.js'
+import useThemeSwitch from './customHooks/useThemeSwitch.js'
 
 // App component
 export default () => {
   // initialize store
   const { state, dispatch } = useStore()
 
+  // manages element's (#app) class name to reflect theme state
+  useThemeSwitch(state.theme)
+
+  // manages pages' class name to reflect current page
   usePageTransition(state.prevPage, state.page)
 
   // calls fetch functions if isLoading === true
@@ -55,6 +60,7 @@ export default () => {
             }}
           />
         </Switch>
+        <div className='ui-button' onClick={() => dispatch({ type: 'SWITCH_THEME' })}>☀</div>
       </Router>
     </>
   )

@@ -16,55 +16,156 @@ button {
   outline: none;
 }
 
-$color1: #111;
-$color2: #333;
-$background1: #eee;
-$background2: #ddd;
-$background3: #bbb;
-$background4: #aaa;
-$background5: #999;
-$background6: #555;
 
-.nav-button {
-  box-sizing: border-box;
-  width: 35vw;
-  height: 12.2vw;
-  margin: 0 auto;
-  font-size: 1.8rem;
-  background: $background2;
-  color: $color2;
-  text-align: center;
-  // padding-bottom: 1.5vw;
-  border-radius: 0 0 3vw 3vw;
-}
+#app {
+  // assigning theme color variables from css variables (defined in themes.scss)
+  $color1: var(--color1);
+  $colorOn: var(--colorOn);
+  $color2: var(--color2);
+  $background1: var(--background1);
+  $background2: var(--background2);
+  $background3: var(--background3);
+  $background4: var(--background4);
+  $background5: var(--background5);
+  $background6: var(--background6);
 
+  nav {
+    a {
+      display: block;
+      margin: 0 auto;
 
-.page {
-  overflow-y: auto;
-  height: 100vh;
-  font-size: 1em;
-  width: 100%;
-  margin: 0 auto;
-  background: $background1;
-}
-
-#movie-page {
-  .content {
-    $page-width: 90vw;
-    $spacing: 2vw;
-    position: relative;
-    width: $page-width;
-    margin: 0 auto;
-
-    .title {
-      font-weight: normal;
+      .nav-button {
+        box-sizing: content-box;
+        width: 35vw;
+        height: 12.2vw;
+        margin: 0 auto;
+        font-size: 1.8rem;
+        background: $background2;
+        color: $color2;
+        text-align: center;
+        // padding-bottom: 1.5vw;
+        border-radius: 0 0 3vw 3vw;
+      }
     }
+  }
+
+  .ui-button {
+    width: 12.2vw;
+    color: $colorOn;
+    height: 12.2vw;
+    border-radius: 0 0 3vw 0;
+    line-height: 11vw;
+    padding-right: 3vw;
+    text-align: center;
+    box-sizing: border-box;
+    background: $background2;
+    position: fixed;
+    cursor: pointer;
+  }
+
+
+  .page {
+    overflow-y: auto;
+    height: 100vh;
+    font-size: 1em;
+    width: 100%;
+    margin: 0 auto;
+    background: $background1;
+  }
+
+  #movie-page {
+    color: $color1;
+
+    .content {
+      $page-width: 90vw;
+      $spacing: 2vw;
+      position: relative;
+      width: $page-width;
+      margin: 0 auto;
+
+      .title {
+        font-weight: normal;
+      }
+
+      .img {
+        position: relative;
+        margin: 0 auto;
+        width: 100%;
+        height: $page-width * 0.5;
+        background-color: $background4;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 100%;
+      }
+
+      .textbox {
+        $max-lines: 4;
+        $lh: 1.4em;
+        $h: (($max-lines + 1) * $lh);
+        box-sizing: border-box;
+        display: block;
+        line-height: $lh;
+        font-size: 1em;
+        width: 100%;
+        background: $background2;
+        height: $h;
+
+        text-overflow: ellipsis;
+        overflow: hidden;
+        margin: 0;
+        border: 0.7rem solid $background2;
+        opacity: 0.8;
+      }
+
+      .rating {
+        #stars {
+          position: static;
+          display: inline-block;
+          font-size: 1.2em;
+          color: $colorOn;
+        }
+      }
+
+      .details {
+        width: 100%;
+        position: static;
+        left: 0;
+
+        .row {
+          display: block;
+          margin: $spacing 0;
+
+          .name {
+            font-size: 1em;
+          }
+
+          .value {
+            font-size: 0.8em;
+          }
+        }
+      }
+
+    }
+  }
+
+  // Card component
+  .card {
+    color: $color1;
+    $width: 100%;
+    $spacing: 4vw;
+    box-sizing: border-box;
+    width: $width;
+    background: $background2;
+    margin: 8vw auto;
+    padding: $spacing 0;
+    position: relative;
+    // display:inline-block;
 
     .img {
-      position: relative;
+      $width: 90vw;
       margin: 0 auto;
-      width: 100%;
-      height: $page-width * 0.5;
+      width: $width;
+      height: $width;
       background-color: $background4;
       background-repeat: no-repeat;
       background-position: center;
@@ -72,373 +173,318 @@ $background6: #555;
     }
 
     .textbox {
-      $max-lines: 4;
-      $lh: 1.4em;
-      $h: (($max-lines + 1) * $lh);
-      box-sizing: border-box;
-      display: block;
-      line-height: $lh;
-      font-size: 1em;
-      width: 100%;
-      background: $background2;
-      height: $h;
-
-      text-overflow: ellipsis;
-      overflow: hidden;
-      margin: 0;
-      border: 0.7rem solid $background2;
-      opacity: 0.8;
-    }
-
-    .rating {
-      #stars {
-        position: static;
-        display: inline-block;
-        font-size: 1.2em;
-      }
-    }
-
-    .details {
-      width: 100%;
-      position: static;
-      left: 0;
-
-      .row {
-        display: block;
-        margin: $spacing 0;
-
-        .name {
-          font-size: 1em;
-        }
-
-        .value {
-          font-size: 0.8em;
-        }
-      }
-    }
-
-  }
-}
-
-// Card component
-.card {
-  color: $color1;
-  $width: 100%;
-  $spacing: 4vw;
-  box-sizing: border-box;
-  width: $width;
-  background: $background2;
-  margin: 8vw auto;
-  padding: $spacing 0;
-  position: relative;
-  // display:inline-block;
-
-  .img {
-    $width: 90vw;
-    margin: 0 auto;
-    width: $width;
-    height: $width;
-    background-color: $background4;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 100%;
-  }
-
-  .textbox {
-    width: $width;
-    margin: $spacing auto 0;
-
-    .title {
-      font-size: 1.2em;
-      font-weight: normal;
-      margin: 0 0 $spacing * .7;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .lang {
-      font-size: 1em;
-    }
-  }
-
-  .floating-rating {
-    position: absolute;
-    display: inline-block;
-    font-size: 1.4em;
-    // background: #e81;
-    background: $background3;
-    text-align: center;
-    border-radius: 50%;
-    top: -2vw;
-    right: 1vw;
-    // z-index: 1000;
-    width: 2.8em;
-    height: 2.8em;
-    line-height: 2.8em;
-  }
-}
-
-.button {
-  cursor: pointer;
-  font-size: 0.6rem;
-  background: #aaa;
-    border: 0.7vw dotted $color1;
-    border-radius: 50%;
-    padding: 0;
-
-  &.roulette {
-    transition: width .2s, height .2s, bottom .2s, right .2s;
-    position: fixed;
-    bottom: 10vw;
-    right: 10vw;
-    width: 18vw;
-    height: 18vw;
-  }
-
-  &.load {
-    transition: width .2s, height .2s;
-    margin: 4vw 10vw 10vw;
-    width: 18vw;
-    height: 18vw;
-    display: inline-block;
-  }
-}
-
-.modal {
-  z-index: -1;
-  visibility: hidden;
-  opacity: 0;
-  transition: opacity 0.25s, z-index 0.5s;
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100vw;
-  height: 100vh;
-  background: #000000aa;
-
-  &.visible {
-    visibility: visible;
-    z-index: 1;
-    opacity: 1;
-  }
-
-  .form {
-    transition: all 0.2s;
-    position: absolute;
-    display: block;
-    top: 50%;
-    left: 50%;
-    background: $background1;
-    width: 80%;
-    overflow: hidden;
-
-    transform: translate(-50%, -50%);
-
-    .query {
-      display: block;
-      padding:0.5em 1em;
-    }
-
-    .title {
-      box-sizing: border-box;
-      font-size: 1.2em;
-      font-weight: normal;
-      padding: 0.7em 0 0.7em 1em;
-      margin: 0;
-      background: $background1;
-      display:inline-block;
-      width:80%;
-    }
-
-    .close-btn {
-      cursor: pointer;
-      box-sizing: border-box;
-      background: $background4;
-      display: inline-block;
-      width: 20%;
-      padding: 0.7em 0;
-      font-size: 1.2em;
-      text-align: center;
-      &:hover {
-        background: $background5;
-      }
-    }
-
-    .content {
-      padding: 1vw 0 1vw 1rem;
-      // box-sizing: border-box;
-      // box-shadow: inset 3px 3px 5px 6px #ccc;
-      margin-bottom: 6vw;
-      // background: #ddd;
-      font-size: 1em;
-      overflow-y: scroll;
-      max-height: 28vh;
-      // border-top: 1vw solid #ddd;
-      // border-bottom: 1vw solid #ddd;
-
-      span {
-        display: block;
-      }
-
-      input {
-        margin-left: 1em;
-      }
-
-      label {
-        display: inline-block;
-        margin-left: .5em;
-        padding: 0.25em 0;
-      }
-    }
-
-    .roll-button {
-      background: $background6;
-      text-align: center;
-      width: 80%;
-      border: none;
-      font-size: 1em;
-      padding: 0.5em 0;
-      margin: 0 auto;
-      display: block; 
-      margin-bottom: 6vw;
-    }
-  }
-}
-
-@media screen and (min-width: 800px) {
-  html {
-    font-size: 1.8vw;
-  }
-
-  #movie-page {
-    .content {
-      .img {
-        height: 90vw * 0.35;
-      }
-
-      .textbox {
-        position: absolute;
-        bottom: 0;
-        width: 50vw;
-      }
-
-      .rating {
-        position: absolute;
-        right:0;
-        
-        #stars {
-          position: absolute;
-          right: 0;
-          font-size: 2.2em;
-        }
-      }
-
-      .details {
-        width: 50%;
-        position: absolute;
-        width: 50%;
-        left: 0;
-      }
-    }
-  }
-
-  .card {
-    $width: (96vw / 4);
-    $spacing: $width * 0.05;
-    font-size: 1em;
-
-    display: inline-block;
-    width: $width;
-    margin: 4vw ($width / 6);
-    padding: $spacing 0;
-
-    .img {
-      $width: $width * 0.9;
-      margin: 0 auto;
-      width: $width;
-      height: $width;
-    }
-
-    .textbox {
-      $width: 90%;
       width: $width;
       margin: $spacing auto 0;
 
       .title {
         font-size: 1.2em;
-        margin: 0 0 ($spacing / 2);
+        font-weight: normal;
+        margin: 0 0 $spacing * .7;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
 
       .lang {
-        font-size: 1em
+        font-size: 1em;
       }
     }
 
     .floating-rating {
-      top: -1vw;
-      right: -1vw;
-      width: 2.5em;
-      height: 2.5em;
-      line-height: 2.5em;
-      font-size: 1.2em;
-    }
-  }
-
-  .modal {
-    .form {
-      width: 35%;
-      .content {
-        margin: 0 auto 2vw;
-        width: 70%;
-        max-height: 35vh;
-      }
-      .roll-button {
-        margin-bottom: 2vw;
-      }
-    }
-  }
-
-  .nav-button {
-    position: absolute;
-    width: 4vw;
-    height: 12vw;
-    line-height: 11.5vw;
-    top: 4vw;
-    font-size: 2rem;
-
-    &.left {
-      left: 0;
-      padding-right: 1.5vw;
-      text-align: right;
-      border-radius: 0 3vw 3vw 0;
-    }
-
-    &.right {
-      right: 0;
-      padding-left: 1.5vw;
-      text-align: left;
-      border-radius: 3vw 0 0 3vw;
+      position: absolute;
+      display: inline-block;
+      font-size: 1.4em;
+      // background: #e81;
+      background: $background3;
+      text-align: center;
+      border-radius: 50%;
+      top: -2vw;
+      right: 1vw;
+      // z-index: 1000;
+      width: 2.8em;
+      height: 2.8em;
+      line-height: 2.8em;
     }
   }
 
   .button {
-    font-size: 0.5rem;
-
-    &.load {
-      display: block;
-      margin: 0 auto 6vw;
-      width: 6vw;
-      height: 6vw;
-      border-width: 0.3vw
-    }
+    cursor: pointer;
+    font-size: 0.6rem;
+    background: $background4;
+    border: 0.7vw dotted $color1;
+    border-radius: 50%;
+    padding: 0;
+    color: $color1;
 
     &.roulette {
-      bottom: 6vw;
-      right: 6vw;
-      width: 6vw;
-      height: 6vw;
-      border-width: 0.3vw;
+      transition: width .2s, height .2s, bottom .2s, right .2s;
+      position: fixed;
+      bottom: 10vw;
+      right: 10vw;
+      width: 18vw;
+      height: 18vw;
+    }
+
+    &.load {
+      transition: width .2s, height .2s;
+      margin: 4vw 10vw 10vw;
+      width: 18vw;
+      height: 18vw;
+      display: inline-block;
+    }
+  }
+
+  .modal {
+    z-index: -1;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.25s, z-index 0.5s;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #000000aa;
+
+    &.visible {
+      visibility: visible;
+      z-index: 1;
+      opacity: 1;
+    }
+
+    .form {
+      transition: all 0.2s;
+      position: absolute;
+      display: block;
+      top: 50%;
+      left: 50%;
+      background: $background1;
+      width: 80%;
+      overflow: hidden;
+
+      transform: translate(-50%, -50%);
+
+      .query {
+        display: block;
+        padding: 0.5em 1em;
+      }
+
+      .title {
+        box-sizing: border-box;
+        font-size: 1.2em;
+        font-weight: normal;
+        padding: 0.7em 0 0.7em 1em;
+        margin: 0;
+        background: $background1;
+        display: inline-block;
+        width: 80%;
+      }
+
+      .close-btn {
+        cursor: pointer;
+        box-sizing: border-box;
+        background: $background4;
+        display: inline-block;
+        width: 20%;
+        padding: 0.7em 0;
+        font-size: 1.2em;
+        text-align: center;
+
+        &:hover {
+          background: $background5;
+        }
+      }
+
+      .content {
+        padding: 1vw 0 1vw 1rem;
+        // box-sizing: border-box;
+        // box-shadow: inset 3px 3px 5px 6px #ccc;
+        margin-bottom: 6vw;
+        // background: #ddd;
+        font-size: 1em;
+        overflow-y: scroll;
+        max-height: 28vh;
+        // border-top: 1vw solid #ddd;
+        // border-bottom: 1vw solid #ddd;
+
+        span {
+          display: block;
+        }
+
+        input {
+          margin-left: 1em;
+        }
+
+        label {
+          display: inline-block;
+          margin-left: .5em;
+          padding: 0.25em 0;
+        }
+      }
+
+      .roll-button {
+        background: $background6;
+        text-align: center;
+        width: 80%;
+        border: none;
+        font-size: 1em;
+        padding: 0.5em 0;
+        margin: 0 auto;
+        display: block;
+        margin-bottom: 6vw;
+      }
+    }
+  }
+
+  @media screen and (min-width: 800px) {
+    @at-root html {
+      font-size: 1.8vw;
+    }
+
+    .ui-button {
+      border-radius: 0 0 2vw 0;
+      width: 4vw;
+      height: 4vw;
+      line-height: 3.8vw;
+      padding-right: 0.6vw;
+    }
+
+    #movie-page {
+      .content {
+        .img {
+          height: 90vw * 0.35;
+        }
+
+        .textbox {
+          position: absolute;
+          bottom: 0;
+          width: 50vw;
+        }
+
+        .rating {
+          position: absolute;
+          right: 0;
+
+          #stars {
+            position: absolute;
+            right: 0;
+            font-size: 2.2em;
+          }
+        }
+
+        .details {
+          width: 50%;
+          position: absolute;
+          width: 50%;
+          left: 0;
+        }
+      }
+    }
+
+    .card {
+      $width: (96vw / 4);
+      $spacing: $width * 0.05;
+      font-size: 1em;
+
+      display: inline-block;
+      width: $width;
+      margin: 4vw ($width / 6);
+      padding: $spacing 0;
+
+      .img {
+        $width: $width * 0.9;
+        margin: 0 auto;
+        width: $width;
+        height: $width;
+      }
+
+      .textbox {
+        $width: 90%;
+        width: $width;
+        margin: $spacing auto 0;
+
+        .title {
+          font-size: 1.2em;
+          margin: 0 0 ($spacing / 2);
+        }
+
+        .lang {
+          font-size: 1em
+        }
+      }
+
+      .floating-rating {
+        top: -1vw;
+        right: -1vw;
+        width: 2.5em;
+        height: 2.5em;
+        line-height: 2.5em;
+        font-size: 1.2em;
+      }
+    }
+
+    .modal {
+      .form {
+        width: 35%;
+
+        .content {
+          margin: 0 auto 2vw;
+          width: 70%;
+          max-height: 35vh;
+        }
+
+        .roll-button {
+          margin-bottom: 2vw;
+        }
+      }
+    }
+
+    nav {
+      a {
+        .nav-button {
+          box-sizing: border-box;
+          position: absolute;
+          width: 4vw;
+          height: 12vw;
+          line-height: 11.5vw;
+          top: 6vw;
+          font-size: 2rem;
+
+          &.left {
+            left: 0;
+            padding-right: 1.5vw;
+            text-align: right;
+            border-radius: 0 2vw 2vw 0;
+          }
+
+          &.right {
+            right: 0;
+            padding-left: 1.5vw;
+            text-align: left;
+            border-radius: 2vw 0 0 2vw;
+          }
+        }
+      }
+    }
+
+    .button {
+      font-size: 0.5rem;
+
+      &.load {
+        display: block;
+        margin: 0 auto 6vw;
+        width: 6vw;
+        height: 6vw;
+        border-width: 0.3vw
+      }
+
+      &.roulette {
+        bottom: 6vw;
+        right: 6vw;
+        width: 6vw;
+        height: 6vw;
+        border-width: 0.3vw;
+      }
     }
   }
 }

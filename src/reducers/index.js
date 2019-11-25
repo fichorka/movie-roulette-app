@@ -68,6 +68,20 @@ export default (state, action) => {
         ...state,
         selectedGenre: action.selectedGenre
       }
+    case 'SWITCH_THEME':
+    {
+      let theme = state.theme
+      if (state.theme > 3) {
+        theme = 1
+      } else {
+        theme += 1
+      }
+      // debugger
+      return {
+        ...state,
+        theme: theme
+      }
+    }
     default:
       return state
   }

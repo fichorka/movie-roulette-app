@@ -39,7 +39,8 @@ const initialState = {
   imageConfig: IMAGE_CONFIG,
   backdropSizeIndex: 2,
   posterSizeIndex: 4,
-  selectedGenre: ''
+  selectedGenre: '',
+  theme: 1
   // dev Templates
   // movies: [
   //   MOVIE,

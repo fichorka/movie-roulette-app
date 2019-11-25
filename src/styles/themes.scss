@@ -1,0 +1,48 @@
+// themes (imported in index.js)
+:root .light {
+  --color1: #111;
+  --colorOn: #111;
+  --color2: #333;
+  --background1: #eee;
+  --background2: #ddd;
+  --background3: #bbb;
+  --background4: #aaa;
+  --background5: #999;
+  --background6: #555;
+}
+
+:root .lightPlus {
+  --color1: #111;
+  --colorOn: #e20;
+  --color2: #333;
+  --background1: #eee;
+  --background2: #ddd;
+  --background3: #fa3;
+  --background4: #aaa;
+  --background5: #999;
+  --background6: #555;
+}
+
+:root .dark {
+  --color1: #e0e0e0;
+  --colorOn: #e0e0e0;
+  --color2: #aaaaaa;
+  --background1: #121212;
+  --background2: #333;
+  --background3: #555;
+  --background4: #777;
+  --background5: #999;
+  --background6: #aaa;
+}
+
+:root .darkPlus {
+  --color1: #e0e0e0;
+  --colorOn: #f61;
+  --color2: #aaaaaa;
+  --background1: #121212;
+  --background2: #333;
+  --background3: #e50;
+  --background4: #777;
+  --background5: #999;
+  --background6: #aaa;
+}
