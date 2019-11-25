@@ -16,7 +16,14 @@ button {
   outline: none;
 }
 
-$color: #111;
+$color1: #111;
+$color2: #333;
+$background1: #eee;
+$background2: #ddd;
+$background3: #bbb;
+$background4: #aaa;
+$background5: #999;
+$background6: #555;
 
 .nav-button {
   box-sizing: border-box;
@@ -24,8 +31,8 @@ $color: #111;
   height: 12.2vw;
   margin: 0 auto;
   font-size: 1.8rem;
-  background: #ddd;
-  color: #333;
+  background: $background2;
+  color: $color2;
   text-align: center;
   // padding-bottom: 1.5vw;
   border-radius: 0 0 3vw 3vw;
@@ -38,7 +45,7 @@ $color: #111;
   font-size: 1em;
   width: 100%;
   margin: 0 auto;
-  background: #eee;
+  background: $background1;
 }
 
 #movie-page {
@@ -58,7 +65,7 @@ $color: #111;
       margin: 0 auto;
       width: 100%;
       height: $page-width * 0.5;
-      background-color: #aaa;
+      background-color: $background4;
       background-repeat: no-repeat;
       background-position: center;
       background-size: 100%;
@@ -73,13 +80,13 @@ $color: #111;
       line-height: $lh;
       font-size: 1em;
       width: 100%;
-      background: #ddd;
+      background: $background2;
       height: $h;
 
       text-overflow: ellipsis;
       overflow: hidden;
       margin: 0;
-      border: 0.7rem solid #ddd;
+      border: 0.7rem solid $background2;
       opacity: 0.8;
     }
 
@@ -115,12 +122,12 @@ $color: #111;
 
 // Card component
 .card {
-  color: $color;
+  color: $color1;
   $width: 100%;
   $spacing: 4vw;
   box-sizing: border-box;
   width: $width;
-  background: #ddd;
+  background: $background2;
   margin: 8vw auto;
   padding: $spacing 0;
   position: relative;
@@ -131,7 +138,7 @@ $color: #111;
     margin: 0 auto;
     width: $width;
     height: $width;
-    background-color: #aaa;
+    background-color: $background;
     background-repeat: no-repeat;
     background-position: center;
     background-size: 100%;
@@ -160,7 +167,7 @@ $color: #111;
     display: inline-block;
     font-size: 1.4em;
     // background: #e81;
-    background: #bbb;
+    background: $background3;
     text-align: center;
     border-radius: 50%;
     top: -2vw;
@@ -176,7 +183,7 @@ $color: #111;
   cursor: pointer;
   font-size: 0.65rem;
   background: #aaa;
-    border: 0.7vw dotted #000;
+    border: 0.7vw dotted $color1;
     border-radius: 50%;
 
   &.roulette {
@@ -221,7 +228,7 @@ $color: #111;
     display: block;
     top: 50%;
     left: 50%;
-    background: #eee;
+    background: $background1;
     width: 80%;
     overflow: hidden;
 
@@ -238,7 +245,7 @@ $color: #111;
       font-weight: normal;
       padding: 0.7em 0 0.7em 1em;
       margin: 0;
-      background: #aaa;
+      background: $background1;
       display:inline-block;
       width:80%;
     }
@@ -246,14 +253,14 @@ $color: #111;
     .close-btn {
       cursor: pointer;
       box-sizing: border-box;
-      background: #aaa;
+      background: $background4;
       display: inline-block;
       width: 20%;
       padding: 0.7em 0;
       font-size: 1.2em;
       text-align: center;
       &:hover {
-        background: #999;
+        background: $background5;
       }
     }
 
@@ -285,7 +292,7 @@ $color: #111;
     }
 
     .roll-button {
-      background: #555;
+      background: $background6;
       text-align: center;
       width: 80%;
       border: none;
