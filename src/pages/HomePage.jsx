@@ -11,12 +11,13 @@ export default ({ state, dispatch }) => {
     dispatch({ type: 'SET_IS_LOADING', isLoading: true })
   }
   const cards = useCards(state)
+  const { movieId, isLoaded } = state
 
   return (
     <div id='home-page' className='page left'>
       <div className='content'>
         <nav>
-          <Link to={`/movies/${state.movieId}`}>
+          <Link to={`/movies/${movieId}`}>
             <div className='nav-button right'>›</div>
           </Link>
         </nav>
@@ -27,7 +28,7 @@ export default ({ state, dispatch }) => {
       </div>
 
       {/* floating buttons */}
-      <LoadButton handleOnload={handleOnload} />
+      <LoadButton handleOnload={handleOnload} isLoaded={isLoaded} />
       <RouletteButton dispatch={dispatch} />
 
       <RouletteModal state={state} dispatch={dispatch} />
