@@ -6,7 +6,6 @@ const movieEndpoint = url + '/movie/'
 const genreEnpoint = url + '/genre/movie/list?language=en-US'
 const imageConfigEndpoint = url + '/configuration'
 const authEndpoint = url + '/authentication/guest_session/new'
-const guestSessionEndpoint = url + '/guest_session/'
 
 const options = {
   method: 'GET',
@@ -92,24 +91,6 @@ export function fetchSessionId () {
     window.fetch(endpoint, options)
       .then(res => res.json())
       .then(res => res.guest_session_id)
-      .catch(err => console.log(err))
-  )
-}
-
-export function fetchRatedMovies (sessionId) {
-  // not needed for now
-  const endpoint = guestSessionEndpoint + `${sessionId}/rated/movies?sort_by=created_at.asc`
-  const nonCachableOptions = {
-    ...options,
-    headers: {
-      ...options.headers,
-      'cache-control': 'no-cache'
-    }
-  }
-  return (
-    window.fetch(endpoint, nonCachableOptions)
-      .then(res => res.json())
-      .then(res => res.results)
       .catch(err => console.log(err))
   )
 }

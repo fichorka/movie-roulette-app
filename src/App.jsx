@@ -12,7 +12,6 @@ import useGenreSet from './customHooks/useGenreSet.js'
 import useThemeSwitch from './customHooks/useThemeSwitch.js'
 import useSessionIdFetch from './customHooks/useSessionIdFetch.js'
 import useMovieVotePost from './customHooks/useMovieVotePost.js'
-import useMovieRatingsFetch from './customHooks/useMovieRatingsFetch.js'
 
 // App component
 export default () => {
@@ -42,9 +41,6 @@ export default () => {
 
   // useMovieVotePost here
   useMovieVotePost(state, dispatch)
-
-  // check for rated movies (not needed actually)
-  // useMovieRatingsFetch(state, dispatch)
 
   // runs only the first time user opens a modal
   useGenreFetch(state, dispatch)
