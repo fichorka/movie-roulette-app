@@ -6,7 +6,7 @@ export default ({ dispatch }) => {
     <button
       className='button roulette' onClick={() => dispatch({ type: 'TOGGLE_MODAL' })}
     >
-      XXX
+      ⤮
     </button>
   )
 }

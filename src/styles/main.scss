@@ -245,6 +245,7 @@ button {
     border-radius: 50%;
     padding: 0;
     color: $color1;
+    box-shadow: $boxShadow;
 
     &:hover {
       background: $background4;
@@ -257,6 +258,7 @@ button {
       right: 10vw;
       width: 18vw;
       height: 18vw;
+      font-size: 1.6rem;
     }
 
     &.load {
@@ -267,7 +269,7 @@ button {
 
       &.loading {
         opacity: 0.3;
-        color: $color1;
+        color: $background3;
         background: $background3;
       }
     }
