@@ -1,4 +1,3 @@
-import extractStars from './extractStars'
 import extractCompanies from './extractCompanies'
 
 // extractMovieData
@@ -18,8 +17,8 @@ export default (movie, dispatch) => {
 
   const year = movie.id ? `${release_date.slice(0, release_date.indexOf('-'))}` : ''
   const displayTitle = movie.id ? `${title} (${year})` : title
-  const stars = extractStars(vote_average)
   const companies = extractCompanies(production_companies)
+  const ownVote = 0
 
   return {
     id,
@@ -31,6 +30,6 @@ export default (movie, dispatch) => {
     popularity,
     language: original_language,
     companies,
-    stars
+    ownVote
   }
 }

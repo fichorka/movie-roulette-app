@@ -10,6 +10,9 @@ import useGenreFetch from './customHooks/useGenreFetch.js'
 import useImageConfigFetch from './customHooks/useImageConfigFetch.js'
 import useGenreSet from './customHooks/useGenreSet.js'
 import useThemeSwitch from './customHooks/useThemeSwitch.js'
+import useSessionIdFetch from './customHooks/useSessionIdFetch.js'
+import useMovieVotePost from './customHooks/useMovieVotePost.js'
+import useMovieRatingsFetch from './customHooks/useMovieRatingsFetch.js'
 
 // App component
 export default () => {
@@ -34,6 +37,15 @@ export default () => {
   // runs after all the movies are fetched
   useImageConfigFetch(state, dispatch)
 
+  // fetches session id once
+  useSessionIdFetch(state, dispatch)
+
+  // useMovieVotePost here
+  useMovieVotePost(state, dispatch)
+
+  // check for rated movies (not needed actually)
+  // useMovieRatingsFetch(state, dispatch)
+
   // runs only the first time user opens a modal
   useGenreFetch(state, dispatch)
   console.log(state)
@@ -43,7 +55,7 @@ export default () => {
       <Router>
 
         <HomePage state={state} dispatch={dispatch} />
-        <MoviePage state={state} />
+        <MoviePage state={state} dispatch={dispatch} />
 
         {/* using routes for store updates */}
         <Switch>

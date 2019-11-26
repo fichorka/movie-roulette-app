@@ -40,7 +40,11 @@ const initialState = {
   backdropSizeIndex: 2,
   posterSizeIndex: 4,
   selectedGenre: '',
-  theme: 1
+  theme: 1,
+  ratedMovies: [],
+  rateQueue: [],
+  sessionId: null,
+  ownVote: 0
   // dev Templates
   // movies: [
   //   MOVIE,

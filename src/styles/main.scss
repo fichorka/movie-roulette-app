@@ -73,6 +73,7 @@ button {
     position: fixed;
     cursor: pointer;
     box-shadow: $boxShadow;
+
     &:hover {
       background: $background3;
       color: $background1
@@ -134,12 +135,21 @@ button {
         opacity: 0.8;
       }
 
-      .rating {
-        #stars {
-          position: static;
-          display: inline-block;
-          font-size: 1.2em;
-          color: $colorOn;
+      .stars {
+        position: static;
+        display: block;
+        font-size: 1.8em;
+        color: $colorOn;
+        text-align: center;
+        
+        .star {
+          border-radius: 10%;
+          cursor: pointer;
+          &:hover {
+            color: $background1;
+            background: $colorOn;
+            box-shadow: $boxShadow;
+          }
         }
       }
 
@@ -235,6 +245,7 @@ button {
     border-radius: 50%;
     padding: 0;
     color: $color1;
+
     &:hover {
       background: $background4;
       color: $background1
@@ -396,7 +407,7 @@ button {
           position: absolute;
           right: 0;
 
-          #stars {
+          .stars {
             position: absolute;
             right: 0;
             font-size: 2.2em;
@@ -410,6 +421,7 @@ button {
           left: 0;
         }
       }
+
     }
 
     .card {
@@ -506,7 +518,7 @@ button {
     .button {
       &.load {
         display: block;
-        margin: 3rem auto 2.3rem;
+        margin: 3rem auto 3rem;
         width: 3.5rem;
         height: 3.5rem;
       }

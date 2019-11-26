@@ -5,15 +5,33 @@ const discoverEndpoint = url + '/discover/movie?language=en-US&sort_by=popularit
 const movieEndpoint = url + '/movie/'
 const genreEnpoint = url + '/genre/movie/list?language=en-US'
 const imageConfigEndpoint = url + '/configuration'
+const authEndpoint = url + '/authentication/guest_session/new'
+const guestSessionEndpoint = url + '/guest_session/'
 
 const options = {
   method: 'GET',
   headers: {
     Authorization: `Bearer ${bearerToken}`,
-    'Content-Type': 'application/json; charset=utf-8'
+    'Content-Type': 'application/json;charset=utf-8'
   }
 }
-randomMovieId()
+
+export function postMovieVote (id, vote, sessionId) {
+  const endpoint = movieEndpoint + `${id}/rating?guest_session_id=${sessionId}`
+  const options = {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${bearerToken}`,
+      'Content-Type': 'application/json;charset=utf-8'
+    },
+    body: JSON.stringify({ value: vote })
+  }
+  return (
+    window.fetch(endpoint, options)
+      .then(res => res.status_code)
+  )
+}
+
 // fetch functions
 export function randomMovieId (genreId) {
   const randomPage = Math.ceil(Math.random() * 100)
@@ -64,6 +82,34 @@ export function fetchImageConfig () {
     window.fetch(endpoint, options)
       .then(res => res.json())
       .then(res => { return res.images })
+      .catch(err => console.log(err))
+  )
+}
+
+export function fetchSessionId () {
+  const endpoint = authEndpoint
+  return (
+    window.fetch(endpoint, options)
+      .then(res => res.json())
+      .then(res => res.guest_session_id)
+      .catch(err => console.log(err))
+  )
+}
+
+export function fetchRatedMovies (sessionId) {
+  // not needed for now
+  const endpoint = guestSessionEndpoint + `${sessionId}/rated/movies?sort_by=created_at.asc`
+  const nonCachableOptions = {
+    ...options,
+    headers: {
+      ...options.headers,
+      'cache-control': 'no-cache'
+    }
+  }
+  return (
+    window.fetch(endpoint, nonCachableOptions)
+      .then(res => res.json())
+      .then(res => res.results)
       .catch(err => console.log(err))
   )
 }

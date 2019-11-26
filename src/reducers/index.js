@@ -82,6 +82,38 @@ export default (state, action) => {
         theme: theme
       }
     }
+    case 'RATE_MOVIE':
+      return {
+        ...state,
+        rateQueue: [...state.rateQueue, { id: action.id, value: action.value }]
+      }
+    case 'SAVE_OWN_MOVIE_VOTE': {
+      // save a vote to a movie
+      const newMovies = state.movies.map(m => {
+        if (m.id === action.id) m.ownVote = action.value
+        return m
+      })
+
+      // remove a movie from the queue
+      const newQueue = state.rateQueue
+      newQueue.shift()
+      return {
+        ...state,
+        movies: newMovies,
+        rateQueue: newQueue
+      }
+    }
+    case 'SET_SESSION_ID':
+      return {
+        ...state,
+        sessionId: action.id
+      }
+    case 'SET_OWN_MOVIE_RATINGS':
+      // not needed now
+      return {
+        ...state,
+        ratedMovies: action.movies
+      }
     default:
       return state
   }

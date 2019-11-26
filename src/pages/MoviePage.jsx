@@ -3,12 +3,14 @@ import { Link } from 'react-router-dom'
 import { selectMovie } from '../reducers'
 import getImageUrl from '../utilities/getImageUrl'
 import extractMovieData from '../utilities/extractMovieData'
+import OwnVote from '../components/OwnVote.jsx'
 
 // MoviePage
-export default ({ state }) => {
+export default ({ state, dispatch }) => {
   const movie = selectMovie(state, state.movieId) || extractMovieData({})
 
   const {
+    id,
     displayTitle,
     backdropPath,
     overview,
@@ -16,7 +18,7 @@ export default ({ state }) => {
     popularity,
     language,
     companies,
-    stars
+    ownVote
   } = movie
 
   const { backdropSizeIndex: i } = state
@@ -36,9 +38,7 @@ export default ({ state }) => {
         <div className='img' style={{ backgroundImage: imageUrl }} />
         <p className='textbox'>{overview}</p>
         <div className='rating'>
-          <div id='stars'>
-            {stars}
-          </div>
+          <OwnVote vote={ownVote} movieId={id} dispatch={dispatch} />
         </div>
         <div className='details'>
           <span className='row'>
