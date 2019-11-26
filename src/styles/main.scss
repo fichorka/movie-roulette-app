@@ -264,6 +264,12 @@ button {
       width: 18vw;
       height: 18vw;
       display: inline-block;
+
+      &.loading {
+        opacity: 0.3;
+        color: $color1;
+        background: $background3;
+      }
     }
   }
 
@@ -521,9 +527,6 @@ button {
         margin: 3rem auto 3rem;
         width: 3.5rem;
         height: 3.5rem;
-        &.loading {
-          opacity: 0.5;
-        }
       }
 
       &.roulette {
