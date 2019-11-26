@@ -17,8 +17,10 @@ export default ({ movieId, vote, dispatch }) => {
     return result
   }
   return (
-    <div className='stars'>
-      {renderStars(vote)}
+    <div className='rating'>
+      <div className='stars'>
+        {renderStars(vote)}
+      </div>
     </div>
   )
 }

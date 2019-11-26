@@ -1,11 +1,11 @@
 import { useEffect } from 'react'
 
-// useMovieFetch
-export default (state, dispatch) => {
+// useLoadStatus
+export default ({ movies, isLoading }, dispatch) => {
   useEffect(() => {
-    let temp
-    if (state.movies.length && state.movies.length % 6 === 0 && !state.isLoading) temp = true
-    else temp = false
-    dispatch({ type: 'SET_IS_LOADED', isLoaded: temp })
-  }, [state.movies.length, state.isLoading])
+    let result
+    if (movies.length && movies.length % 6 === 0 && !isLoading) result = true
+    else result = false
+    dispatch({ type: 'SET_IS_LOADED', isLoaded: result })
+  }, [movies.length, isLoading])
 }

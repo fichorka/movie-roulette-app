@@ -7,9 +7,6 @@ import RouletteModal from '../components/RouletteModal.jsx'
 
 // HomePage
 export default ({ state, dispatch }) => {
-  function handleOnload () {
-    dispatch({ type: 'SET_IS_LOADING', isLoading: true })
-  }
   const cards = useCards(state)
   const { movieId, isLoaded } = state
 
@@ -28,7 +25,7 @@ export default ({ state, dispatch }) => {
       </div>
 
       {/* floating buttons */}
-      <LoadButton handleOnload={handleOnload} isLoaded={isLoaded} />
+      <LoadButton isLoaded={isLoaded} dispatch={dispatch} />
       <RouletteButton dispatch={dispatch} />
 
       <RouletteModal state={state} dispatch={dispatch} />

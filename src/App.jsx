@@ -2,49 +2,40 @@ import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import HomePage from './pages/HomePage.jsx'
 import MoviePage from './pages/MoviePage.jsx'
-import useStore from './customHooks/useStore'
-import usePageTransition from './customHooks/usePageTransition'
-import useMovieFetch from './customHooks/useMovieFetch.js'
-import useLoadStatus from './customHooks/useLoadStatus.js'
-import useGenreFetch from './customHooks/useGenreFetch.js'
-import useImageConfigFetch from './customHooks/useImageConfigFetch.js'
-import useGenreSet from './customHooks/useGenreSet.js'
-import useThemeSwitch from './customHooks/useThemeSwitch.js'
-import useSessionIdFetch from './customHooks/useSessionIdFetch.js'
-import useMovieVotePost from './customHooks/useMovieVotePost.js'
+import { useStore, useThemeSwitch, usePageTransition, useMovieFetch, useGenreSet, useLoadStatus, useImageConfigFetch, useSessionIdFetch, useMovieVotePost, useGenreFetch } from './customHooks'
+import ThemeSwitch from './components/ThemeSwitch.jsx'
 
 // App component
 export default () => {
-  // initialize store
+  // initializes state/store
   const { state, dispatch } = useStore()
 
   // manages element's (#app) class name to reflect theme state
-  useThemeSwitch(state.theme)
+  useThemeSwitch(state)
 
-  // manages pages' class name to reflect current page
-  usePageTransition(state.prevPage, state.page)
+  // manages pages' class name to reflect current page set in state
+  usePageTransition(state)
 
-  // calls fetch functions if isLoading === true
+  // calls fetch function for getting 6 movies, if isLoading === true
   useMovieFetch(state, dispatch)
 
-  // removes and fetches new movies on genre change
+  // clears all movies and manages isLoading state on genreChange
   useGenreSet(state, dispatch)
 
-  // manage isLoaded state
+  // manages isLoaded state
   useLoadStatus(state, dispatch)
 
-  // runs after all the movies are fetched
+  // calls fetch function, after initial 6 movies are fetched, for getting configuration on image urls
   useImageConfigFetch(state, dispatch)
 
-  // fetches session id once
+  // Calls fetch function once for getting guestSessionId
   useSessionIdFetch(state, dispatch)
 
-  // useMovieVotePost here
+  // Calls fetch function for posting user vote to API when user rates a movie
   useMovieVotePost(state, dispatch)
 
   // runs only the first time user opens a modal
   useGenreFetch(state, dispatch)
-  console.log(state)
 
   return (
     <>
@@ -53,7 +44,7 @@ export default () => {
         <HomePage state={state} dispatch={dispatch} />
         <MoviePage state={state} dispatch={dispatch} />
 
-        {/* using routes for store updates */}
+        {/* using routes for state updates */}
         <Switch>
           <Route
             exact path='/' render={() => {
@@ -68,7 +59,7 @@ export default () => {
             }}
           />
         </Switch>
-        <div className='ui-button' onClick={() => dispatch({ type: 'SWITCH_THEME' })}>☀</div>
+        <ThemeSwitch dispatch={dispatch} />
       </Router>
     </>
   )

@@ -4,6 +4,7 @@ import { selectMovie } from '../reducers'
 import getImageUrl from '../utilities/getImageUrl'
 import extractMovieData from '../utilities/extractMovieData'
 import OwnVote from '../components/OwnVote.jsx'
+import MovieDetails from '../components/MovieDetails.jsx'
 
 // MoviePage
 export default ({ state, dispatch }) => {
@@ -37,26 +38,8 @@ export default ({ state, dispatch }) => {
         <h1 className='title'>{displayTitle}</h1>
         <div className='img' style={{ backgroundImage: imageUrl }} />
         <p className='textbox'>{overview}</p>
-        <div className='rating'>
-          <OwnVote vote={ownVote} movieId={id} dispatch={dispatch} />
-        </div>
-        <div className='details'>
-          <span className='row'>
-            <span className='name'>Rating: </span><span className='value'>{voteAverage}</span>
-          </span>
-          <span className='row'>
-            <span className='name'>Popularity: </span><span className='value'>{popularity}</span><br />
-          </span>
-          <span className='row'>
-            <span className='name'>Language: </span><span className='value'>{language}</span><br />
-          </span>
-          <span className='row'>
-            <span className='name'>Companies: </span>
-            <span className='value'>
-              {companies}
-            </span>
-          </span>
-        </div>
+        <OwnVote vote={ownVote} movieId={id} dispatch={dispatch} />
+        <MovieDetails voteAverage={voteAverage} popularity={popularity} language={language} companies={companies} />
       </div>
     </div>
   )

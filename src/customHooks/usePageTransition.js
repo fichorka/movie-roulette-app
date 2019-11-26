@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 
 // usePageTransition
-export default (prevPage, page) => {
+export default ({ prevPage, page }) => {
   useEffect(() => {
     switch (page) {
       case 'home':

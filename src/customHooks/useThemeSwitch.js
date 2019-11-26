@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 
 // useThemeSwitch
-export default (theme) => {
+export default ({ theme }) => {
   useEffect(() => {
     document.getElementById('app').className = ''
     switch (theme) {
