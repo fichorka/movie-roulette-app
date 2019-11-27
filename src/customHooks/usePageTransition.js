@@ -13,7 +13,13 @@ export default ({ prevPage, page }) => {
         const moviePage = document.getElementById('movie-page')
         moviePage.classList.add('current')
         document.getElementById('home-page').classList.remove('current')
-        moviePage.scroll({ top: 0, left: 0, behavior: 'smooth' })
+
+        // for those browsers that don't support sroll method
+        try {
+          moviePage.scroll({ top: 0, left: 0, behavior: 'smooth' })
+        } catch (err) {
+          console.log(err)
+        }
         break
       }
     }
