@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { fetchGenres } from '../fetchMovies'
+import { fetchGenres } from '../fetchFunctions'
 
 // useGenreFetch
 export default ({ isModalVisible, isGenresFetched }, dispatch) => {

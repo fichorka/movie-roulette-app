@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { postMovieVote } from '../fetchMovies'
+import { postMovieVote } from '../fetchFunctions'
 
 // useMovieVotePost
 export default ({ rateQueue, sessionId }, dispatch) => {

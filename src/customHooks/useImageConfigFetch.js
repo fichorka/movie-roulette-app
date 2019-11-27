@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { fetchImageConfig } from '../fetchMovies'
+import { fetchImageConfig } from '../fetchFunctions'
 import extractImageConfigData from '../utilities/extractImageConfigData'
 
 // useImageConfigFetch

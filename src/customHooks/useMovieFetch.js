@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { fetchMovie } from '../fetchMovies'
+import { fetchMovie } from '../fetchFunctions'
 import extractMovieData from '../utilities/extractMovieData'
 
 // useMovieFetch

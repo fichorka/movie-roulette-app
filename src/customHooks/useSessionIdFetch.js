@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { fetchSessionId } from '../fetchMovies'
+import { fetchSessionId } from '../fetchFunctions'
 
 // useSessionIdFetch
 export default ({ sessionId }, dispatch) => {
