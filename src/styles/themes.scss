@@ -1,4 +1,6 @@
 // themes (imported in index.js)
+// variables apply to #app element with the corresponding class. #app element's class is dynamically updated by useThemeSwitch hook
+
 :root .light {
   --color1: #111;
   --colorOn: #111;

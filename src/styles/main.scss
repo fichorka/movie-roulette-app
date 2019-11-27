@@ -1,3 +1,5 @@
+// breakpoints: 800px
+
 html {
   font-size: 5vw;
 }
@@ -5,7 +7,7 @@ html {
 body {
   margin: 0 auto;
   background: #eee;
-  font: 1em arial, sans-serif;
+  font: 1rem arial, sans-serif;
 }
 
 a {
@@ -18,10 +20,11 @@ button {
 
 
 #app {
+  // variables
   $boxShadow: 0 0 .2em 0 #000;
   $btnTrans: background .2s, color .2s;
 
-  // assigning theme color variables from css variables (defined in themes.scss)
+  // theme color variables defined in themes.scss
   $color1: var(--color1);
   $colorOn: var(--colorOn);
   $color2: var(--color2);
@@ -32,6 +35,8 @@ button {
   $background5: var(--background5);
   $background6: var(--background6);
 
+
+  // left and right nav buttons
   nav {
     a {
       display: block;
@@ -47,7 +52,6 @@ button {
         background: $background2;
         color: $color2;
         text-align: center;
-        // padding-bottom: 1.5vw;
         border-radius: 0 0 3vw 3vw;
         box-shadow: $boxShadow;
 
@@ -59,7 +63,7 @@ button {
     }
   }
 
-  .ui-button {
+  .theme-switch {
     transition: $btnTrans;
     width: 12.2vw;
     color: $colorOn;
@@ -141,10 +145,11 @@ button {
         font-size: 1.8em;
         color: $colorOn;
         text-align: center;
-        
+
         .star {
           border-radius: 10%;
           cursor: pointer;
+
           &:hover {
             color: $background1;
             background: $colorOn;
@@ -171,227 +176,222 @@ button {
           }
         }
       }
-
     }
   }
 
-  // Card component
-  .card {
-    color: $color1;
-    $width: 100%;
-    $spacing: 4vw;
-    box-sizing: border-box;
-    width: $width;
-    background: $background2;
-    margin: 8vw auto;
-    padding: $spacing 0;
-    position: relative;
-    // display:inline-block;
-
-    .img {
-      $width: 90vw;
-      margin: 0 auto;
+  #home-page {
+    .card {
+      color: $color1;
+      $width: 100%;
+      $spacing: 4vw;
+      box-sizing: border-box;
       width: $width;
-      height: $width;
-      background-color: $background3;
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: 100%;
-    }
+      background: $background2;
+      margin: 8vw auto;
+      padding: $spacing 0;
+      position: relative;
 
-    .textbox {
-      width: $width;
-      margin: $spacing auto 0;
-
-      .title {
-        font-size: 1.2em;
-        font-weight: normal;
-        margin: 0 0 $spacing * .7;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
+      .img {
+        $width: 90vw;
+        margin: 0 auto;
+        width: $width;
+        height: $width;
+        background-color: $background3;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 100%;
       }
 
-      .lang {
-        font-size: 1em;
-      }
-    }
+      .textbox {
+        width: $width;
+        margin: $spacing auto 0;
 
-    .floating-rating {
-      position: absolute;
-      display: inline-block;
-      font-size: 1.4em;
-      // background: #e81;
-      background: $background6;
-      color: $background1;
-      text-align: center;
-      border-radius: 50%;
-      top: -2vw;
-      right: 1vw;
-      // z-index: 1000;
-      width: 2.8em;
-      height: 2.8em;
-      line-height: 2.8em;
-    }
-  }
+        .title {
+          font-size: 1.2em;
+          font-weight: normal;
+          margin: 0 0 $spacing * .7;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
 
-
-  .button {
-    transition: $btnTrans, width .2s, height .2s, bottom .2s, right .2s;
-    cursor: pointer;
-    font-size: 0.7rem;
-    background: $background3;
-    border: 0.2rem dotted $color1;
-    border-radius: 50%;
-    padding: 0;
-    color: $color1;
-    box-shadow: $boxShadow;
-
-    &:hover {
-      background: $background4;
-      color: $background1
-    }
-
-    &.roulette {
-      position: fixed;
-      bottom: 10vw;
-      right: 10vw;
-      width: 18vw;
-      height: 18vw;
-      font-size: 1.6rem;
-    }
-
-    &.load {
-      margin: 4vw 10vw 10vw;
-      width: 18vw;
-      height: 18vw;
-      display: inline-block;
-
-      &.loading {
-        opacity: 0.3;
-        color: $background3;
-        background: $background3;
-      }
-    }
-  }
-
-  .modal {
-    z-index: -1;
-    visibility: hidden;
-    opacity: 0;
-    transition: opacity .3s, z-index .3s, visibility .3s;
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100vw;
-    height: 100vh;
-    background: #000000aa;
-    color: $color1;
-
-    &.visible {
-      visibility: visible;
-      transition: opacity .3s;
-      z-index: 1;
-      opacity: 1;
-    }
-
-    .form {
-      transition: all 0.2s;
-      position: absolute;
-      display: block;
-      top: 50%;
-      left: 50%;
-      background: $background1;
-      width: 80%;
-      overflow: hidden;
-
-      transform: translate(-50%, -50%);
-
-      .query {
-        display: block;
-        padding: 0.5em 1em;
+        .lang {
+          font-size: 1em;
+        }
       }
 
-      .title {
-        box-sizing: border-box;
-        font-size: 1.2em;
-        font-weight: normal;
-        padding: 0.7em 0 0.7em 1em;
-        margin: 0;
-        background: $background2;
+      .floating-rating {
+        position: absolute;
         display: inline-block;
-        width: 80%;
-      }
-
-      .close-btn {
-        cursor: pointer;
-        box-sizing: border-box;
-        background: $background2;
-        display: inline-block;
-        width: 20%;
-        padding: 0.7em 0;
-        font-size: 1.2em;
+        font-size: 1.4em;
+        background: $background6;
+        color: $background1;
         text-align: center;
+        border-radius: 50%;
+        top: -2vw;
+        right: 1vw;
+        width: 2.8em;
+        height: 2.8em;
+        line-height: 2.8em;
+      }
+    }
 
-        &:hover {
+    // LoadButton and RouletteButton components
+    .button {
+      transition: $btnTrans, width .2s, height .2s, bottom .2s, right .2s;
+      cursor: pointer;
+      font-size: 0.7rem;
+      background: $background3;
+      border: 0.2rem dotted $color1;
+      border-radius: 50%;
+      padding: 0;
+      color: $color1;
+      box-shadow: $boxShadow;
+
+      &:hover {
+        background: $background4;
+        color: $background1
+      }
+
+      &.roulette {
+        position: fixed;
+        bottom: 10vw;
+        right: 10vw;
+        width: 18vw;
+        height: 18vw;
+        font-size: 1.6rem;
+      }
+
+      &.load {
+        margin: 4vw 10vw 10vw;
+        width: 18vw;
+        height: 18vw;
+        display: inline-block;
+
+        &.loading {
+          opacity: 0.3;
+          color: $background3;
           background: $background3;
         }
       }
+    }
 
-      .content {
-        padding: 1vw 0 1vw 1rem;
-        // box-sizing: border-box;
-        // box-shadow: inset 3px 3px 5px 6px #ccc;
-        margin-bottom: 6vw;
-        // background: #ddd;
-        font-size: 1em;
-        overflow-y: scroll;
-        max-height: 28vh;
-        // border-top: 1vw solid #ddd;
-        // border-bottom: 1vw solid #ddd;
+    // RouletteModal component
+    .modal {
+      z-index: -1;
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity .3s, z-index .3s, visibility .3s;
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+      background: #000000aa;
+      color: $color1;
 
-        span {
-          display: block;
-        }
-
-        input {
-          margin-left: 1em;
-        }
-
-        label {
-          display: inline-block;
-          margin-left: .5em;
-          padding: 0.25em 0;
-        }
+      &.visible {
+        visibility: visible;
+        transition: opacity .3s;
+        z-index: 1;
+        opacity: 1;
       }
 
-      .roll-button {
-        transition: $btnTrans;
-        background: $background3;
-        text-align: center;
-        color: $color1;
-        width: 80%;
-        border: none;
-        font-size: 1em;
-        padding: 0.5em 0;
-        margin: 0 auto;
+      .form {
+        transition: all 0.2s;
+        position: absolute;
         display: block;
-        margin-bottom: 6vw;
+        top: 50%;
+        left: 50%;
+        background: $background1;
+        width: 80%;
+        overflow: hidden;
 
-        &:hover {
-          background: $background6;
-          color: $background1;
+        transform: translate(-50%, -50%);
+
+        .query {
+          display: block;
+          padding: 0.5em 1em;
+        }
+
+        .title {
+          box-sizing: border-box;
+          font-size: 1.2em;
+          font-weight: normal;
+          padding: 0.7em 0 0.7em 1em;
+          margin: 0;
+          background: $background2;
+          display: inline-block;
+          width: 80%;
+        }
+
+        .close-btn {
+          cursor: pointer;
+          box-sizing: border-box;
+          background: $background2;
+          display: inline-block;
+          width: 20%;
+          padding: 0.7em 0;
+          font-size: 1.2em;
+          text-align: center;
+
+          &:hover {
+            background: $background3;
+          }
+        }
+
+        .content {
+          padding: 1vw 0 1vw 1rem;
+          margin-bottom: 6vw;
+          font-size: 1em;
+          overflow-y: scroll;
+          max-height: 28vh;
+
+          span {
+            display: block;
+          }
+
+          input {
+            margin-left: 1em;
+          }
+
+          label {
+            display: inline-block;
+            margin-left: .5em;
+            padding: 0.25em 0;
+          }
+        }
+
+        .roll-button {
+          transition: $btnTrans;
+          background: $background3;
+          text-align: center;
+          color: $color1;
+          width: 80%;
+          border: none;
+          font-size: 1em;
+          padding: 0.5em 0;
+          margin: 0 auto;
+          display: block;
+          margin-bottom: 6vw;
+
+          &:hover {
+            background: $background6;
+            color: $background1;
+          }
         }
       }
     }
   }
 
+  // ***breakpoint***
+  // rules for large screens(dekstop):
   @media screen and (min-width: 800px) {
     @at-root html {
       font-size: 1.8vw;
     }
 
-    .ui-button {
+    .theme-switch {
       border-radius: 0 0 2vw 0;
       width: 4vw;
       height: 4vw;
@@ -432,69 +432,89 @@ button {
 
     }
 
-    .card {
-      $width: (96vw / 4);
-      $spacing: $width * 0.05;
-      font-size: 1em;
-      border-radius: 2%;
-      display: inline-block;
-      width: $width;
-      margin: 4vw ($width / 6);
-      padding: $spacing 0;
-
-      .img {
-        $width: $width * 0.9;
-        margin: 0 auto;
+    #home-page {
+      .card {
+        $width: (96vw / 4);
+        $spacing: $width * 0.05;
+        font-size: 1em;
+        border-radius: 2%;
+        display: inline-block;
         width: $width;
-        height: $width;
-      }
+        margin: 4vw ($width / 6);
+        padding: $spacing 0;
 
-      .textbox {
-        $width: 90%;
-        width: $width;
-        margin: $spacing auto 0;
+        .img {
+          $width: $width * 0.9;
+          margin: 0 auto;
+          width: $width;
+          height: $width;
+        }
 
-        .title {
+        .textbox {
+          $width: 90%;
+          width: $width;
+          margin: $spacing auto 0;
+
+          .title {
+            font-size: 1.2em;
+            margin: 0 0 ($spacing / 2);
+          }
+
+          .lang {
+            font-size: 1em
+          }
+        }
+
+        .floating-rating {
+          top: -1vw;
+          right: -1vw;
+          width: 2.5em;
+          height: 2.5em;
+          line-height: 2.5em;
           font-size: 1.2em;
-          margin: 0 0 ($spacing / 2);
-        }
-
-        .lang {
-          font-size: 1em
         }
       }
 
-      .floating-rating {
-        top: -1vw;
-        right: -1vw;
-        width: 2.5em;
-        height: 2.5em;
-        line-height: 2.5em;
-        font-size: 1.2em;
+      .content a:nth-last-child(-n+3) .card {
+        margin-bottom: 0;
+      }
+
+      // LoadButton and RouletteButton components
+      .button {
+        &.load {
+          display: block;
+          margin: 3rem auto 3rem;
+          width: 3.5rem;
+          height: 3.5rem;
+        }
+
+        &.roulette {
+          bottom: 3rem;
+          right: 3rem;
+          width: 3.5rem;
+          height: 3.5rem;
+        }
+      }
+
+      // RouletteModal component
+      .modal {
+        .form {
+          width: 35%;
+
+          .content {
+            margin: 0 auto 2vw;
+            width: 70%;
+            max-height: 35vh;
+          }
+
+          .roll-button {
+            margin-bottom: 2vw;
+          }
+        }
       }
     }
 
-
-    .content a:nth-last-child(-n+3) .card {
-      margin-bottom: 0;
-    }
-
-    .modal {
-      .form {
-        width: 35%;
-
-        .content {
-          margin: 0 auto 2vw;
-          width: 70%;
-          max-height: 35vh;
-        }
-
-        .roll-button {
-          margin-bottom: 2vw;
-        }
-      }
-    }
-
+    // left and right navigation buttons
     nav {
       a {
         .nav-button {
@@ -520,22 +540,6 @@ button {
             border-radius: 2vw 0 0 2vw;
           }
         }
-      }
-    }
-
-    .button {
-      &.load {
-        display: block;
-        margin: 3rem auto 3rem;
-        width: 3.5rem;
-        height: 3.5rem;
-      }
-
-      &.roulette {
-        bottom: 3rem;
-        right: 3rem;
-        width: 3.5rem;
-        height: 3.5rem;
       }
     }
   }
