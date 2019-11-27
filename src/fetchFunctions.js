@@ -35,7 +35,7 @@ export function randomMovieId (genreId) {
 }
 
 export function productionCompanies (id) {
-  const endpoint = movieEndpoint + id
+  const endpoint = movieEndpoint + `/${id}`
   return (
     window.fetch(endpoint, options)
       .then(res => res.json())
